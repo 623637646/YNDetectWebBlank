@@ -8,6 +8,8 @@
 
 #import "YNDemoWKWebViewController.h"
 #import "YNDemoWKWebNormalViewController.h"
+#import "YNDemoWKWebBlankViewController.h"
+#import "YNDemoWKWebTimeOutViewController.h"
 
 @interface YNDemoWKWebViewController ()
 
@@ -20,7 +22,9 @@
     [super viewDidLoad];
     self.title = @"WKWebView";
     self.dataSource = @[
-                        [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoWKWebNormalViewController.class]
+                        [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoWKWebNormalViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"Blank" obj:YNDemoWKWebBlankViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoWKWebTimeOutViewController.class]
                         ];
 }
 

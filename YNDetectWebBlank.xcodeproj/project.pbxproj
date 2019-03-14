@@ -16,6 +16,10 @@
 		5C26AE402239F8460047B81A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C26AE3F2239F8460047B81A /* Assets.xcassets */; };
 		5C26AE432239F8460047B81A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C26AE412239F8460047B81A /* LaunchScreen.storyboard */; };
 		5C26AE462239F8460047B81A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C26AE452239F8460047B81A /* main.m */; };
+		5C3A8E6D223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E6C223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m */; };
+		5C3A8E70223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */; };
+		5C3A8E79223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E78223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.m */; };
+		5C3A8E7C223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */; };
 		5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */; };
 		5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */; };
 		5C6ED2B7223A02B700B308EB /* UIView+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B5223A02B700B308EB /* UIView+YNDWBPrivate.h */; };
@@ -56,6 +60,14 @@
 		5C26AE422239F8460047B81A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C26AE442239F8460047B81A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C26AE452239F8460047B81A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5C3A8E6B223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoUIWebBlankViewController.h; sourceTree = "<group>"; };
+		5C3A8E6C223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoUIWebBlankViewController.m; sourceTree = "<group>"; };
+		5C3A8E6E223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebBlankViewController.h; sourceTree = "<group>"; };
+		5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebBlankViewController.m; sourceTree = "<group>"; };
+		5C3A8E77223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoUIWebTimeOutViewController.h; sourceTree = "<group>"; };
+		5C3A8E78223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoUIWebTimeOutViewController.m; sourceTree = "<group>"; };
+		5C3A8E7A223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebTimeOutViewController.h; sourceTree = "<group>"; };
+		5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebTimeOutViewController.m; sourceTree = "<group>"; };
 		5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWB.h"; sourceTree = "<group>"; };
 		5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWB.m"; sourceTree = "<group>"; };
 		5C6ED2B5223A02B700B308EB /* UIView+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YNDWBPrivate.h"; sourceTree = "<group>"; };
@@ -126,6 +138,10 @@
 			children = (
 				5C0220C5223A0CD10035DCDA /* YNDemoUIWebNormalViewController.h */,
 				5C0220C6223A0CD10035DCDA /* YNDemoUIWebNormalViewController.m */,
+				5C3A8E6B223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.h */,
+				5C3A8E6C223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m */,
+				5C3A8E77223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.h */,
+				5C3A8E78223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.m */,
 			);
 			path = Normal;
 			sourceTree = "<group>";
@@ -135,6 +151,10 @@
 			children = (
 				5C0220C9223A0CF90035DCDA /* YNDemoWKWebNormalViewController.h */,
 				5C0220CA223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m */,
+				5C3A8E6E223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.h */,
+				5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */,
+				5C3A8E7A223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.h */,
+				5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */,
 			);
 			path = Normal;
 			sourceTree = "<group>";
@@ -446,15 +466,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */,
+				5C3A8E70223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m in Sources */,
 				5CE6426B223A0B4F00EC19BB /* YNDemoWKWebViewController.m in Sources */,
+				5C3A8E7C223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m in Sources */,
 				5CE6425E223A0A4300EC19BB /* YNDemoListViewController.m in Sources */,
 				5CEA328C223A2F170056B01E /* YNDemoBaseWKWebViewController.m in Sources */,
 				5CEA328F223A3CA00056B01E /* YNDemoServerConfig.m in Sources */,
 				5C26AE462239F8460047B81A /* main.m in Sources */,
+				5C3A8E79223A62C600FA9C1A /* YNDemoUIWebTimeOutViewController.m in Sources */,
 				5C0220C7223A0CD10035DCDA /* YNDemoUIWebNormalViewController.m in Sources */,
 				5CE64267223A0B3400EC19BB /* YNDemoUIWebViewController.m in Sources */,
 				5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */,
 				5C221D68223A2CD3004665DD /* YNDemoBaseUIWebViewController.m in Sources */,
+				5C3A8E6D223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m in Sources */,
 				5C26AE382239F8450047B81A /* AppDelegate.m in Sources */,
 				5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */,
 				5C0220CB223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m in Sources */,

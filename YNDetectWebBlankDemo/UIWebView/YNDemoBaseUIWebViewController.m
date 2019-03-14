@@ -20,7 +20,8 @@
 - (void) loadWithURLString:(NSString *)URLString
 {
     NSURL *URL = [NSURL URLWithString:URLString];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    request.timeoutInterval = 3;
     [self.webView loadRequest:request];
 }
 
@@ -37,7 +38,7 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES].label.text = @"UIWebView loading";
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView

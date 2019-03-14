@@ -8,6 +8,8 @@
 
 #import "YNDemoUIWebViewController.h"
 #import "YNDemoUIWebNormalViewController.h"
+#import "YNDemoUIWebBlankViewController.h"
+#import "YNDemoUIWebTimeOutViewController.h"
 
 @interface YNDemoUIWebViewController ()
 
@@ -20,7 +22,9 @@
     [super viewDidLoad];
     self.title = @"UIWebView";
     self.dataSource = @[
-                        [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoUIWebNormalViewController.class]
+                        [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoUIWebNormalViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"Blank" obj:YNDemoUIWebBlankViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoUIWebTimeOutViewController.class]
                         ];
 }
 

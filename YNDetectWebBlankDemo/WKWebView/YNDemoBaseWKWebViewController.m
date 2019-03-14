@@ -21,7 +21,8 @@
 - (void) loadWithURLString:(NSString *)URLString
 {
     NSURL *URL = [NSURL URLWithString:URLString];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
+    request.timeoutInterval = 3;
     [self.webView loadRequest:request];
 }
 
@@ -38,7 +39,7 @@
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES].label.text = @"WKWebView loading";
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
