@@ -19,14 +19,12 @@
 - (id<AspectToken>)yndwb_token
 {
     return objc_getAssociatedObject(self, @selector(yndwb_token));
-    
 }
 
 
 - (void)setYndwb_block:(dispatch_block_t)yndwb_block
 {
     objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
-
 }
 
 - (dispatch_block_t)yndwb_block

@@ -37,9 +37,9 @@
 		5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA3296223A560A0056B01E /* NSString+YNDemo.m */; };
 		5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */; };
 		5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */; };
-		5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */; };
+		5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CEEFBAB2239FC83005D6CB5 /* UIWebView+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */; };
-		5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */; };
+		5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CEEFBAF2239FC9F005D6CB5 /* WKWebView+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBAD2239FC9F005D6CB5 /* WKWebView+YNDWB.m */; };
 		FE891390757E2D080F96C194 /* libPods-YNDetectWebBlankDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E980CF7F51A148B599F2CD /* libPods-YNDetectWebBlankDemo.a */; };
 /* End PBXBuildFile section */
@@ -219,10 +219,6 @@
 		5C6ED2B9223A030500B308EB /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */,
-				5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */,
-				5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */,
-				5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */,
 				5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */,
 				5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */,
 				5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */,
@@ -284,6 +280,10 @@
 			isa = PBXGroup;
 			children = (
 				5C6ED2B9223A030500B308EB /* Public */,
+				5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */,
+				5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */,
+				5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */,
+				5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */,
 				5C6ED2B5223A02B700B308EB /* UIView+YNDWBPrivate.h */,
 				5C6ED2B6223A02B700B308EB /* UIView+YNDWBPrivate.m */,
 			);
