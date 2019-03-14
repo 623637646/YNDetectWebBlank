@@ -17,7 +17,7 @@
 
 @implementation YNDemoBaseUIWebViewController
 
-- (void) loadWithURLString:(NSString *)URLString
+- (void)loadWithURLString:(NSString *)URLString
 {
     NSURL *URL = [NSURL URLWithString:URLString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
@@ -25,9 +25,17 @@
     [self.webView loadRequest:request];
 }
 
+- (void)removeAllSubviewsForWebView
+{
+    [self.webView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    webView.backgroundColor = [UIColor whiteColor];
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     webView.delegate = self;
     [self.view addSubview:webView];

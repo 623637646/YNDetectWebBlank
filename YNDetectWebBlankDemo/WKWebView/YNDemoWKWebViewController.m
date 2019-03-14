@@ -10,6 +10,7 @@
 #import "YNDemoWKWebNormalViewController.h"
 #import "YNDemoWKWebBlankViewController.h"
 #import "YNDemoWKWebTimeOutViewController.h"
+#import "YNDemoWKWebBlankWhenBackViewController.h"
 
 @interface YNDemoWKWebViewController ()
 
@@ -24,7 +25,8 @@
     self.dataSource = @[
                         [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoWKWebNormalViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank" obj:YNDemoWKWebBlankViewController.class],
-                        [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoWKWebTimeOutViewController.class]
+                        [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoWKWebTimeOutViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"Blank when back" obj:YNDemoWKWebBlankWhenBackViewController.class]
                         ];
 }
 

@@ -12,7 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YNDemoBaseWKWebViewController : UIViewController
 
-- (void) loadWithURLString:(NSString *)URLString;
+- (void)loadWithURLString:(NSString *)URLString;
+
+- (void)removeAllSubviewsForWebView;
 
 @end
 

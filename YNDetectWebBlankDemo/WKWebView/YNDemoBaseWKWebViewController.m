@@ -18,7 +18,7 @@
 
 @implementation YNDemoBaseWKWebViewController
 
-- (void) loadWithURLString:(NSString *)URLString
+- (void)loadWithURLString:(NSString *)URLString
 {
     NSURL *URL = [NSURL URLWithString:URLString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
@@ -26,10 +26,18 @@
     [self.webView loadRequest:request];
 }
 
+- (void)removeAllSubviewsForWebView
+{
+    [self.webView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    webView.backgroundColor = [UIColor whiteColor];
     webView.navigationDelegate = self;
     [self.view addSubview:webView];
     self.webView = webView;
