@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YNDemoUIWebNormalViewController.h
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface YNDemoUIWebNormalViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
