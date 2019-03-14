@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YNDemoBaseWKWebViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YNDemoWKWebNormalViewController : UIViewController
+@interface YNDemoWKWebNormalViewController : YNDemoBaseWKWebViewController
 
 @end
 

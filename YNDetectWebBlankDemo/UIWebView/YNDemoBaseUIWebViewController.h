@@ -1,5 +1,5 @@
 //
-//  YNDemoUIWebNormalViewController.h
+//  YNDemoBaseUIWebViewController.h
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YNDemoBaseUIWebViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YNDemoUIWebNormalViewController : YNDemoBaseUIWebViewController
+@interface YNDemoBaseUIWebViewController : UIViewController
+
+- (void) loadWithURLString:(NSString *)URLString;
 
 @end
 

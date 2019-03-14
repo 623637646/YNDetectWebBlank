@@ -17,13 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    [webView loadRequest:({
-        NSURL *url = [NSURL URLWithString:@"https://www.google.com"];
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-        request;
-    })];
-    [self.view addSubview:webView];
+    [self loadWithURLString:@"https://www.google.com"];
 }
 
 @end
