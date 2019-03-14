@@ -14,6 +14,7 @@ target 'YNDetectWebBlankDemo' do
   # use_frameworks!
 
   pod 'YNDetectWebBlank', :path=>'./'
+  pod 'MBProgressHUD'
 
 end
 

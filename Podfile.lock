@@ -1,15 +1,18 @@
 PODS:
   - Aspects (1.4.1)
+  - MBProgressHUD (1.1.0)
   - YNDetectWebBlank (0.0.1):
     - Aspects (~> 1.4.1)
 
 DEPENDENCIES:
   - Aspects (= 1.4.1)
+  - MBProgressHUD
   - YNDetectWebBlank (from `./`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Aspects
+    - MBProgressHUD
 
 EXTERNAL SOURCES:
   YNDetectWebBlank:
@@ -17,8 +20,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   YNDetectWebBlank: db844a4a4b7a3f68be15de84a11f1a7876891975
 
-PODFILE CHECKSUM: d2bbc6b4ec8bb1813c9d39a7ca93b5512e5a1d4e
+PODFILE CHECKSUM: b6b748863158e23f55035703f92369e39e9c7617
 
 COCOAPODS: 1.5.3
