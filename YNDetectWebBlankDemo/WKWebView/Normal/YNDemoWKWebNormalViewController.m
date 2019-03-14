@@ -8,6 +8,7 @@
 
 #import "YNDemoWKWebNormalViewController.h"
 #import <WebKit/WebKit.h>
+#import "YNDemoServerConfig.h"
 
 @interface YNDemoWKWebNormalViewController ()
 
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadWithURLString:@"https://www.google.com"];
+    [self loadWithURLString:[NSString stringWithFormat:@"%@/normal", [YNDemoServerConfig sharedInstance].serverURL]];
 }
 
 @end
