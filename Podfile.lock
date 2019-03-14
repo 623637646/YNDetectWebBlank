@@ -1,0 +1,24 @@
+PODS:
+  - Aspects (1.4.1)
+  - YNDetectWebBlank (0.0.1):
+    - Aspects (~> 1.4.1)
+
+DEPENDENCIES:
+  - Aspects (= 1.4.1)
+  - YNDetectWebBlank (from `./`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Aspects
+
+EXTERNAL SOURCES:
+  YNDetectWebBlank:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  YNDetectWebBlank: db844a4a4b7a3f68be15de84a11f1a7876891975
+
+PODFILE CHECKSUM: ffea06f23eb8b7d533ce74f935e47649d04fa65e
+
+COCOAPODS: 1.5.3
