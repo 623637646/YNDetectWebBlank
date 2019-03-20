@@ -6,6 +6,7 @@ target 'YNDetectWebBlank' do
   # use_frameworks!
 
   pod 'Aspects', '1.4.1'
+  pod 'KVOController', '1.2.0'
 
 end
 
