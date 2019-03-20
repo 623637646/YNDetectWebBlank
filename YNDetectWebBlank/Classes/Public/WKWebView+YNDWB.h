@@ -8,9 +8,21 @@
 
 #import <WebKit/WebKit.h>
 
+extern NSString *const YNDWBErrorDomin;
+
+typedef enum : NSUInteger {
+    YNDWBErrorCodeParameterInvaild,
+} YNDWBErrorCode;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WKWebView (YNDWB)
+
+// Delay interval when webView loaded. default is 200ms.
+@property (nonatomic, assign, class) NSTimeInterval yndwb_delayDetectWhenLoaded;
+
+// Detect 
+- (BOOL)yndwb_detectBlankWithBlock:(dispatch_block_t)block error:(NSError**)error;
 
 @end
 

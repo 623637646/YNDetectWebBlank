@@ -12,7 +12,8 @@
 
 - (BOOL)yndwb_isBlank
 {
-    return YES;
+    UIColor *color = [UIColor colorWithPatternImage:self];
+    return [color isEqual:[UIColor whiteColor]];
 }
 
 @end

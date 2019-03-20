@@ -9,8 +9,6 @@
 #import "UIView+YNDWB.h"
 #import "UIImage+YNDWB.h"
 
-NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
-
 @implementation UIView (YNDWB)
 
 - (UIImage *)yndwb_takeSnapshot

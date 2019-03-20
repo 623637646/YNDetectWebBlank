@@ -10,13 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString *const YNDWBErrorDomin;
-
-typedef enum : NSUInteger {
-    YNDWBErrorCodeParameterInvaild,
-} YNDWBErrorCode;
-
-
 @interface UIView (YNDWB)
 
 - (UIImage *)yndwb_takeSnapshot;

@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIWebView (YNDWB)
 
-- (BOOL)yndwb_detectBlankWithBlock:(dispatch_block_t)block delay:(NSTimeInterval)delay error:(NSError**)error;
 
 @end
 
