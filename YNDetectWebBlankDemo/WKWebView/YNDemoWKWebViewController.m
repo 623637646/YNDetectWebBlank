@@ -13,6 +13,7 @@
 #import "YNDemoWKWebBlankWhenBackViewController.h"
 #import "YNDemoWKWebCoveredViewController.h"
 #import "YNDemoWKWebHasSubviewsViewController.h"
+#import "YNDemoWKWebComplexViewController.h"
 
 @interface YNDemoWKWebViewController ()
 
@@ -30,7 +31,8 @@
                         [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoWKWebTimeOutViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank when back" obj:YNDemoWKWebBlankWhenBackViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank when Covered by other views" obj:YNDemoWKWebCoveredViewController.class],
-                        [YNDemoListDataSourceItem itemWithTitle:@"Blank when has subviews" obj:YNDemoWKWebHasSubviewsViewController.class]
+                        [YNDemoListDataSourceItem itemWithTitle:@"Blank when has subviews" obj:YNDemoWKWebHasSubviewsViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"A complex page" obj:YNDemoWKWebComplexViewController.class]
                         ];
 }
 
