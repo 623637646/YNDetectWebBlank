@@ -42,9 +42,10 @@
     webView.navigationDelegate = self;
     NSError *error;
     __weak typeof(self) wself = self;
-    [webView yndwb_detectBlankWithBlock:^{
+    [webView yndwb_detectBlankWithBlock:^(WKWebView *webView, YNDetectWebBlankAction action) {
         __strong typeof(self) self = wself;
-        self.title = @"Oh! It's Blank!";
+        NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
+        self.title = [NSString stringWithFormat:@"It's blank when %@!",actionString];
     } error:&error];
     NSAssert(!error, @"");
     [self.view addSubview:webView];

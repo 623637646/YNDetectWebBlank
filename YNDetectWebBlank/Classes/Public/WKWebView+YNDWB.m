@@ -17,7 +17,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 @interface WKWebView (YNDWBPrivate)
 
 @property (nonatomic, strong) id<AspectToken> yndwb_didMoveToWindowToken;
-@property (nonatomic, copy) dispatch_block_t yndwb_block;
+@property (nonatomic, copy) YNDetectWebBlankBlock yndwb_block;
 @property (nonatomic, copy) dispatch_block_t yndwb_deployDetectionBlock;
 @end
 
@@ -33,12 +33,12 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     return objc_getAssociatedObject(self, @selector(yndwb_didMoveToWindowToken));
 }
 
-- (void)setYndwb_block:(dispatch_block_t)yndwb_block
+- (void)setYndwb_block:(YNDetectWebBlankBlock)yndwb_block
 {
     objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (dispatch_block_t)yndwb_block
+- (YNDetectWebBlankBlock)yndwb_block
 {
     return objc_getAssociatedObject(self, @selector(yndwb_block));
 }
@@ -57,7 +57,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 
 @implementation WKWebView (YNDWB)
 
-- (BOOL)yndwb_detectBlankWithBlock:(dispatch_block_t)block error:(NSError**)error
+- (BOOL)yndwb_detectBlankWithBlock:(YNDetectWebBlankBlock)block error:(NSError**)error
 {
     // check parameter
     NSParameterAssert(block != nil);
@@ -102,19 +102,19 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 
 - (void)yndwb_requestDetectWhenBack
 {
-    [self yndwb_setUpDeployDetectionBlock];
+    [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionAppear];
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
 
 - (void)yndwb_requestDetectWhenFinishLoading
 {
-    [self yndwb_setUpDeployDetectionBlock];
+    [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionLoaded];
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(WKWebView.yndwb_delayDetectWhenLoaded * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
 
-- (void)yndwb_setUpDeployDetectionBlock
+- (void)yndwb_setUpDeployDetectionBlockWithAction:(YNDetectWebBlankAction)action
 {
     [self yndwb_cancelDeployDetectionBlock];
     __weak typeof(self) wself = self;
@@ -124,7 +124,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
             return;
         }
         if (self.window && !self.isLoading) {
-            [self yndwb_detect];
+            [self yndwb_detectWithAction:action];
         }
         self.yndwb_deployDetectionBlock = nil;
     });
@@ -138,7 +138,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     }
 }
 
-- (void)yndwb_detect
+- (void)yndwb_detectWithAction:(YNDetectWebBlankAction)action
 {
     NSAssert(self.window, @"yndwb_detect: Window is nil");
     NSAssert(!self.isLoading, @"yndwb_detect: Is loading");
@@ -155,7 +155,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     if (!isBlank) {
         return;
     }
-    self.yndwb_block();
+    self.yndwb_block(self, action);
 }
 
 #pragma mark - getter setter

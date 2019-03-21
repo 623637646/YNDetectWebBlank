@@ -14,6 +14,13 @@ typedef enum : NSUInteger {
     YNDWBErrorCodeParameterInvaild,
 } YNDWBErrorCode;
 
+typedef NS_ENUM(NSUInteger, YNDetectWebBlankAction) {
+    YNDetectWebBlankActionLoaded,
+    YNDetectWebBlankActionAppear
+};
+
+typedef void (^YNDetectWebBlankBlock)(WKWebView *webView, YNDetectWebBlankAction action);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WKWebView (YNDWB)
@@ -22,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, class) NSTimeInterval yndwb_delayDetectWhenLoaded;
 
 // Detect 
-- (BOOL)yndwb_detectBlankWithBlock:(dispatch_block_t)block error:(NSError**)error;
+- (BOOL)yndwb_detectBlankWithBlock:(YNDetectWebBlankBlock)block error:(NSError**)error;
 
 @end
 
