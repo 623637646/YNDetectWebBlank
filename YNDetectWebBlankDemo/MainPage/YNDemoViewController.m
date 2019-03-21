@@ -14,7 +14,6 @@
 
 @interface YNDemoViewController()<UITextFieldDelegate>
 @property (nonatomic, weak) UIButton *IPButton;
-//@property (nonatomic, weak) UIAlertController *alert;
 
 // alert
 @property (nonatomic, weak) UITextField *alertTextField;

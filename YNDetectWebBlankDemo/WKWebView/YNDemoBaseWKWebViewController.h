@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadWithURLString:(NSString *)URLString;
 
-- (void)removeAllSubviewsForWebView;
+- (void)makeWebViewBlank;
 
 @end
 

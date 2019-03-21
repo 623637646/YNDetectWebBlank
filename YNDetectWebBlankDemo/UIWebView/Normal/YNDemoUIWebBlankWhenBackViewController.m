@@ -22,7 +22,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    [self removeAllSubviewsForWebView];
+    [self makeWebViewBlank];
 }
 
 - (void)didTapRightItem:(id)sender

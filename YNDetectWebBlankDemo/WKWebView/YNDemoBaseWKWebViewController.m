@@ -9,6 +9,7 @@
 #import "YNDemoBaseWKWebViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <WebKit/WebKit.h>
+#import <YNDetectWebBlank/YNDetectWebBlank.h>
 
 @interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate>
 
@@ -26,7 +27,7 @@
     [self.webView loadRequest:request];
 }
 
-- (void)removeAllSubviewsForWebView
+- (void)makeWebViewBlank
 {
     [self.webView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj removeFromSuperview];
@@ -39,6 +40,13 @@
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     webView.backgroundColor = [UIColor whiteColor];
     webView.navigationDelegate = self;
+    NSError *error;
+    __weak typeof(self) wself = self;
+    [webView yndwb_detectBlankWithBlock:^{
+        __strong typeof(self) self = wself;
+        self.title = @"Oh! It's Blank!";
+    } error:&error];
+    NSAssert(!error, @"");
     [self.view addSubview:webView];
     self.webView = webView;
 }
@@ -58,23 +66,19 @@
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:[NSString stringWithFormat:@"%@" ,error] preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:({
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        action;
-    })];
-    [self presentViewController:alert animated:YES completion:nil];
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.label.text = error.localizedDescription;
+    HUD.mode = MBProgressHUDModeText;
+    [HUD hideAnimated:YES afterDelay:3];
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:[NSString stringWithFormat:@"%@" ,error] preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:({
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-        action;
-    })];
-    [self presentViewController:alert animated:YES completion:nil];
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.label.text = error.localizedDescription;
+    HUD.mode = MBProgressHUDModeText;
+    [HUD hideAnimated:YES afterDelay:3];
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler

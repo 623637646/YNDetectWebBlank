@@ -10,15 +10,15 @@
 #import <Aspects/Aspects.h>
 #import <objc/runtime.h>
 #import "UIView+YNDWB.h"
+#import <KVOController/KVOController.h>
 
 NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 
 @interface WKWebView (YNDWBPrivate)
 
 @property (nonatomic, strong) id<AspectToken> yndwb_didMoveToWindowToken;
-@property (nonatomic, strong) id<AspectToken> yndwb_isLoadingToken;
 @property (nonatomic, copy) dispatch_block_t yndwb_block;
-
+@property (nonatomic, copy) dispatch_block_t yndwb_deployDetectionBlock;
 @end
 
 @implementation WKWebView (YNDWBPrivate)
@@ -33,16 +33,6 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     return objc_getAssociatedObject(self, @selector(yndwb_didMoveToWindowToken));
 }
 
-- (void)setYndwb_isLoadingToken:(id<AspectToken>)yndwb_isLoadingToken
-{
-    objc_setAssociatedObject(self, @selector(yndwb_isLoadingToken), yndwb_isLoadingToken, OBJC_ASSOCIATION_RETAIN);
-}
-
-- (id<AspectToken>)yndwb_isLoadingToken
-{
-    return objc_getAssociatedObject(self, @selector(yndwb_isLoadingToken));
-}
-
 - (void)setYndwb_block:(dispatch_block_t)yndwb_block
 {
     objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
@@ -51,6 +41,16 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 - (dispatch_block_t)yndwb_block
 {
     return objc_getAssociatedObject(self, @selector(yndwb_block));
+}
+
+- (void)setYndwb_deployDetectionBlock:(dispatch_block_t)yndwb_deployDetectionBlock
+{
+    objc_setAssociatedObject(self, @selector(yndwb_deployDetectionBlock), yndwb_deployDetectionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (dispatch_block_t)yndwb_deployDetectionBlock
+{
+    return objc_getAssociatedObject(self, @selector(yndwb_deployDetectionBlock));
 }
 
 @end
@@ -71,38 +71,88 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     self.yndwb_block = block;
     
     // aspect
-    if (self.yndwb_didMoveToWindowToken == nil) {
+    if (!self.yndwb_didMoveToWindowToken) {
         __weak typeof(self) wself = self;
         self.yndwb_didMoveToWindowToken = [self aspect_hookSelector:@selector(didMoveToWindow) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
             __strong typeof(self) self = wself;
-            
+            if (self.window && !self.isLoading) {
+                // TODO How about non-URL request
+                [self yndwb_requestDetectWhenBack];
+            } else {
+                [self yndwb_cancelDeployDetectionBlock];
+            }
         } error:error];
         if (*error != nil) {
             return NO;
         }
-    }
-    if (self.yndwb_isLoadingToken == nil) {
-        __weak typeof(self) wself = self;
-        self.yndwb_isLoadingToken = [self aspect_hookSelector:@selector(setLoadingToken) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
+        
+        // TODO cycle retain?
+        [self.KVOController observe:self keyPath:@"loading" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
             __strong typeof(self) self = wself;
-            
-        } error:error];
-        if (*error != nil) {
-            return NO;
-        }
+            BOOL isLoading = [change[NSKeyValueChangeNewKey] boolValue];
+            if (self.window && !isLoading) {
+                [self yndwb_requestDetectWhenFinishLoading];
+            }
+        }];
     }
     return YES;
 }
 
+#pragma mark - Detect
+
+- (void)yndwb_requestDetectWhenBack
+{
+    [self yndwb_setUpDeployDetectionBlock];
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+    dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
+}
+
+- (void)yndwb_requestDetectWhenFinishLoading
+{
+    [self yndwb_setUpDeployDetectionBlock];
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(WKWebView.yndwb_delayDetectWhenLoaded * NSEC_PER_SEC));
+    dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
+}
+
+- (void)yndwb_setUpDeployDetectionBlock
+{
+    [self yndwb_cancelDeployDetectionBlock];
+    __weak typeof(self) wself = self;
+    self.yndwb_deployDetectionBlock = dispatch_block_create(0, ^{
+        __strong typeof(self) self = wself;
+        if (!self) {
+            return;
+        }
+        if (self.window && !self.isLoading) {
+            [self yndwb_detect];
+        }
+        self.yndwb_deployDetectionBlock = nil;
+    });
+}
+
+- (void)yndwb_cancelDeployDetectionBlock
+{
+    if (self.yndwb_deployDetectionBlock) {
+        dispatch_block_cancel(self.yndwb_deployDetectionBlock);
+        self.yndwb_deployDetectionBlock = nil;
+    }
+}
+
 - (void)yndwb_detect
 {
-    if (self.window == nil) {
+    NSAssert(self.window, @"yndwb_detect: Window is nil");
+    NSAssert(!self.isLoading, @"yndwb_detect: Is loading");
+    if (!self.window) {
         return;
     }
     if (self.isLoading) {
         return;
     }
-    if (![self yndwb_isBlank]) {
+    CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+    BOOL isBlank = [self yndwb_isBlank];
+    CFAbsoluteTime detectTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    NSLog(@"YNDetectWebBlank detection time: %0.2fms", detectTime * 1000.0);
+    if (!isBlank) {
         return;
     }
     self.yndwb_block();
@@ -112,12 +162,20 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
 
 + (void)setYndwb_delayDetectWhenLoaded:(NSTimeInterval)yndwb_delayDetectWhenLoaded
 {
+    NSParameterAssert(yndwb_delayDetectWhenLoaded > 0);
+    if (yndwb_delayDetectWhenLoaded <= 0) {
+        return;
+    }
     objc_setAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded), @(yndwb_delayDetectWhenLoaded), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 + (NSTimeInterval)yndwb_delayDetectWhenLoaded
 {
-    return [objc_getAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded)) doubleValue];
+    id value = objc_getAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded));
+    if (!value) {
+        return 0.2;
+    }
+    return [value doubleValue];
 }
 
 @end

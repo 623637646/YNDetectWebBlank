@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKWebView (YNDWB)
 
-// Delay interval when webView loaded. default is 200ms.
+// Delay interval when webView loaded. default is 0.2s.
 @property (nonatomic, assign, class) NSTimeInterval yndwb_delayDetectWhenLoaded;
 
 // Detect 
