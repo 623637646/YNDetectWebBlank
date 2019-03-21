@@ -8,7 +8,6 @@
 
 #import "YNDemoBaseWKWebViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <WebKit/WebKit.h>
 #import <YNDetectWebBlank/YNDetectWebBlank.h>
 
 @interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate>

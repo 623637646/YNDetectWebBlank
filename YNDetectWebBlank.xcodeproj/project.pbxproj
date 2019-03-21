@@ -24,6 +24,8 @@
 		5C3A8E82223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */; };
 		5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */; };
 		5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */; };
+		5C8AC0862243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */; };
+		5C8AC0892243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */; };
 		5CE6425E223A0A4300EC19BB /* YNDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */; };
 		5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425D223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m */; };
 		5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE64262223A0A6300EC19BB /* YNDemoViewController.m */; };
@@ -74,6 +76,10 @@
 		5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebBlankWhenBackViewController.m; sourceTree = "<group>"; };
 		5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWB.h"; sourceTree = "<group>"; };
 		5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWB.m"; sourceTree = "<group>"; };
+		5C8AC0842243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebCoveredViewController.h; sourceTree = "<group>"; };
+		5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebCoveredViewController.m; sourceTree = "<group>"; };
+		5C8AC0872243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebHasSubviewsViewController.h; sourceTree = "<group>"; };
+		5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebHasSubviewsViewController.m; sourceTree = "<group>"; };
 		5CE6425A223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoTitleCollectionViewCell.h; sourceTree = "<group>"; };
 		5CE6425B223A0A4300EC19BB /* YNDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoListViewController.h; sourceTree = "<group>"; };
 		5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDemoListViewController.m; sourceTree = "<group>"; };
@@ -135,7 +141,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5C0220C4223A0CB40035DCDA /* Normal */ = {
+		5C0220C4223A0CB40035DCDA /* Cases */ = {
 			isa = PBXGroup;
 			children = (
 				5C0220C5223A0CD10035DCDA /* YNDemoUIWebNormalViewController.h */,
@@ -147,10 +153,10 @@
 				5C3A8E7D223A691400FA9C1A /* YNDemoUIWebBlankWhenBackViewController.h */,
 				5C3A8E7E223A691400FA9C1A /* YNDemoUIWebBlankWhenBackViewController.m */,
 			);
-			path = Normal;
+			path = Cases;
 			sourceTree = "<group>";
 		};
-		5C0220C8223A0CE90035DCDA /* Normal */ = {
+		5C0220C8223A0CE90035DCDA /* Cases */ = {
 			isa = PBXGroup;
 			children = (
 				5C0220C9223A0CF90035DCDA /* YNDemoWKWebNormalViewController.h */,
@@ -161,8 +167,12 @@
 				5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */,
 				5C3A8E80223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.h */,
 				5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */,
+				5C8AC0842243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.h */,
+				5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */,
+				5C8AC0872243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.h */,
+				5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */,
 			);
-			path = Normal;
+			path = Cases;
 			sourceTree = "<group>";
 		};
 		5C26AE1B2239F7510047B81A = {
@@ -251,7 +261,7 @@
 		5CE64264223A0ABD00EC19BB /* UIWebView */ = {
 			isa = PBXGroup;
 			children = (
-				5C0220C4223A0CB40035DCDA /* Normal */,
+				5C0220C4223A0CB40035DCDA /* Cases */,
 				5CE64265223A0B3400EC19BB /* YNDemoUIWebViewController.h */,
 				5CE64266223A0B3400EC19BB /* YNDemoUIWebViewController.m */,
 				5C221D66223A2CD3004665DD /* YNDemoBaseUIWebViewController.h */,
@@ -263,7 +273,7 @@
 		5CE64268223A0B3900EC19BB /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
-				5C0220C8223A0CE90035DCDA /* Normal */,
+				5C0220C8223A0CE90035DCDA /* Cases */,
 				5CE64269223A0B4F00EC19BB /* YNDemoWKWebViewController.h */,
 				5CE6426A223A0B4F00EC19BB /* YNDemoWKWebViewController.m */,
 				5CEA328A223A2F170056B01E /* YNDemoBaseWKWebViewController.h */,
@@ -467,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8AC0862243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m in Sources */,
 				5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */,
 				5C3A8E70223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m in Sources */,
 				5CE6426B223A0B4F00EC19BB /* YNDemoWKWebViewController.m in Sources */,
@@ -483,6 +494,7 @@
 				5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */,
 				5C221D68223A2CD3004665DD /* YNDemoBaseUIWebViewController.m in Sources */,
 				5C3A8E6D223A5F5F00FA9C1A /* YNDemoUIWebBlankViewController.m in Sources */,
+				5C8AC0892243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m in Sources */,
 				5C26AE382239F8450047B81A /* AppDelegate.m in Sources */,
 				5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */,
 				5C0220CB223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m in Sources */,

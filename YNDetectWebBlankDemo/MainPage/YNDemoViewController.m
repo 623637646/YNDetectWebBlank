@@ -51,6 +51,24 @@
 
 - (void)didTapIPButton
 {
+    [self updateIP];
+}
+
+- (void)didSelectItem:(YNDemoListDataSourceItem *)item
+{
+    NSString *IP = [YNDemoServerConfig sharedInstance].IP;
+    if (!IP) {
+        [self updateIP];
+        return;
+    }
+    UIViewController *vc = [[item.obj alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - utilities
+
+- (void)updateIP
+{
     NSString *IP = [YNDemoServerConfig sharedInstance].IP;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Config Server IP" message:IP ? [NSString stringWithFormat:@"Original IP is:%@", IP] : @"Please input server IP" preferredStyle:UIAlertControllerStyleAlert];
     __weak typeof(self) wself = self;
@@ -84,12 +102,6 @@
         action;
     })];
     [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)didSelectItem:(YNDemoListDataSourceItem *)item
-{
-    UIViewController *vc = [[item.obj alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
