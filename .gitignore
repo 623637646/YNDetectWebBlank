@@ -1,5 +1,5 @@
-*.xcuserstate
 Pods
 YNDetectWebBlank.xcodeproj/xcuserdata
 YNDetectWebBlank.xcworkspace/xcuserdata
 YNDetectWebBlankServerDemo/node_modules
+YNDetectWebBlank.xcodeproj/project.xcworkspace/xcuserdata
