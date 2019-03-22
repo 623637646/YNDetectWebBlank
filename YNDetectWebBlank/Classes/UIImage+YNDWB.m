@@ -13,6 +13,8 @@
 // refer: https://stackoverflow.com/a/30732543/9315497
 - (BOOL)yndwb_isBlank
 {
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+
     CGImageRef image = self.CGImage;
     size_t width = CGImageGetWidth(image);
     size_t height = CGImageGetHeight(image);
@@ -44,6 +46,8 @@
         }
     }
     
+    CFAbsoluteTime detectTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    NSLog(@"YNDetectWebBlank UIImage yndwb_isBlank time: %0.2fms", detectTime * 1000.0);
     return imageExist;
 }
 

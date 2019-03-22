@@ -13,6 +13,8 @@
 
 - (UIImage *)yndwb_takeSnapshot
 {
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
+    
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, [UIScreen mainScreen].scale);
     
     [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
@@ -21,6 +23,9 @@
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    CFAbsoluteTime detectTime = (CFAbsoluteTimeGetCurrent() - startTime);
+    NSLog(@"YNDetectWebBlank UIView yndwb_takeSnapshot time: %0.2fms", detectTime * 1000.0);
     return image;
 }
 

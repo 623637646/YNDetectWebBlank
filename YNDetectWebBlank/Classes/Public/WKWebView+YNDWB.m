@@ -148,7 +148,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     if (self.isLoading) {
         return;
     }
-    CFAbsoluteTime startTime =CFAbsoluteTimeGetCurrent();
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     BOOL isBlank = [self yndwb_isBlank];
     CFAbsoluteTime detectTime = (CFAbsoluteTimeGetCurrent() - startTime);
     NSLog(@"YNDetectWebBlank detection time: %0.2fms", detectTime * 1000.0);
