@@ -155,7 +155,7 @@ NSString *const YNDWBErrorDomin = @"com.shopee.yanni.YNDetectWebBlank";
     if (!isBlank) {
         return;
     }
-    self.yndwb_block(self, action);
+    self.yndwb_block(self, action, detectTime * 1000.0);
 }
 
 #pragma mark - getter setter

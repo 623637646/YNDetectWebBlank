@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, YNDetectWebBlankAction) {
     YNDetectWebBlankActionAppear
 };
 
-typedef void (^YNDetectWebBlankBlock)(WKWebView *webView, YNDetectWebBlankAction action);
+typedef void (^YNDetectWebBlankBlock)(WKWebView *webView, YNDetectWebBlankAction action, double detectionTime);
 
 NS_ASSUME_NONNULL_BEGIN
 

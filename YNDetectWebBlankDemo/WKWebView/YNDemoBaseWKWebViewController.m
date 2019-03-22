@@ -13,6 +13,8 @@
 @interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate>
 
 @property (nonatomic, weak) WKWebView *webView;
+@property (nonatomic, weak) MBProgressHUD *loadingHUD;
+@property (nonatomic, weak) MBProgressHUD *toastHUD;
 
 @end
 
@@ -41,44 +43,76 @@
     webView.navigationDelegate = self;
     NSError *error;
     __weak typeof(self) wself = self;
-    [webView yndwb_detectBlankWithBlock:^(WKWebView *webView, YNDetectWebBlankAction action) {
+    [webView yndwb_detectBlankWithBlock:^(WKWebView *webView, YNDetectWebBlankAction action, double detectionTime) {
         __strong typeof(self) self = wself;
         NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
-        self.title = [NSString stringWithFormat:@"It's blank when %@!",actionString];
+        NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).",actionString, detectionTime];
+        [self showToast:toast];
     } error:&error];
     NSAssert(!error, @"");
     [self.view addSubview:webView];
     self.webView = webView;
 }
 
+#pragma mark - utilities
+
+- (void)showLoading
+{
+    NSAssert(!self.loadingHUD, @"Is loading, can't show again!");
+    [self hideToastIfNeed];
+    self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.loadingHUD.label.text = @"WKWebView loading";
+}
+
+- (void)hideLoading
+{
+    NSAssert(self.loadingHUD, @"Is not loading, can't hide");
+    [self.loadingHUD hideAnimated:YES];
+}
+
+- (void)showToast:(NSString *)text
+{
+    [self hideToastIfNeed];
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.label.text = text;
+    HUD.offset = CGPointMake(0, 100);
+    HUD.mode = MBProgressHUDModeText;
+}
+
+- (void)hideToastIfNeed
+{
+    if (self.toastHUD) {
+        [self.toastHUD hideAnimated:YES];
+        self.toastHUD = nil;
+    }
+}
+
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES].label.text = @"WKWebView loading";
+    [self showLoading];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [self hideLoading];
 }
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.label.text = error.localizedDescription;
-    HUD.mode = MBProgressHUDModeText;
-    [HUD hideAnimated:YES afterDelay:3];
+    [self hideLoading];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.label.text = error.localizedDescription;
-    HUD.mode = MBProgressHUDModeText;
-    [HUD hideAnimated:YES afterDelay:3];
+    [self hideLoading];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
