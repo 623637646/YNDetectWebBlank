@@ -11,7 +11,7 @@
 #import <YNDetectWebBlank/YNDetectWebBlank.h>
 #import <WebKit/WebKit.h>
 
-@interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate>
+@interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate, UIWebViewDelegate>
 
 @property (nonatomic, assign) YNDemoBaseWebViewType type;
 @property (nonatomic, weak) UIView *webView;
@@ -54,21 +54,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    webView.backgroundColor = [UIColor whiteColor];
-    webView.navigationDelegate = self;
-    NSError *error;
-    __weak typeof(self) wself = self;
-    [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
-        __strong typeof(self) self = wself;
-        NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
-        NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
-        [self showToast:toast];
-    } error:&error];
-    NSAssert(!error, @"");
-    [self.view addSubview:webView];
-    self.webView = webView;
+    
+    switch (self.type) {
+        case YNDemoBaseWebViewTypeWK:{
+            WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+            webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            webView.backgroundColor = [UIColor whiteColor];
+            webView.navigationDelegate = self;
+            NSError *error;
+            __weak typeof(self) wself = self;
+            [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+                __strong typeof(self) self = wself;
+                NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
+                NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
+                [self showToast:toast];
+            } error:&error];
+            NSAssert(!error, @"");
+            [self.view addSubview:webView];
+            self.webView = webView;
+            break;
+        }
+        case YNDemoBaseWebViewTypeUI:{
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+            webView.backgroundColor = [UIColor whiteColor];
+            webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            webView.delegate = self;
+            [self.view addSubview:webView];
+            self.webView = webView;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - utilities
@@ -162,6 +178,26 @@
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
 
+}
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self showLoading];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideLoading];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideLoading];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
