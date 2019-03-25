@@ -29,7 +29,21 @@
     // property
     self.yndwb_block = block;
     
-    // aspect
+    // hook
+    if (![self yndwb_hookDidMoveToWindowIfNeed:error]) {
+        return NO;
+    }
+    if (![self yndwb_hookLoadingIfNeed:error]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+#pragma mark - hook
+
+- (BOOL)yndwb_hookDidMoveToWindowIfNeed:(NSError**)error
+{
     if (!self.yndwb_didMoveToWindowToken) {
         __weak typeof(self) wself = self;
         self.yndwb_didMoveToWindowToken = [self aspect_hookSelector:@selector(didMoveToWindow) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
@@ -44,20 +58,49 @@
         if (*error != nil) {
             return NO;
         }
-        
-        // TODO cycle retain?
-        [self.KVOController observe:self keyPath:@"loading" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-            __strong typeof(self) self = wself;
-            BOOL isLoading = [change[NSKeyValueChangeNewKey] boolValue];
-            if (self.window && !isLoading) {
-                [self yndwb_requestDetectWhenFinishLoading];
-            }
-        }];
     }
     return YES;
 }
 
-#pragma mark - public: detect
+- (BOOL)yndwb_hookLoadingIfNeed:(NSError**)error
+{
+    if ([self isKindOfClass:WKWebView.class]) {
+        if (![self yndwb_hookLoadingForWKIfNeed:error]) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else if ([self isKindOfClass:UIWebView.class]){
+        if (![self yndwb_hookLoadingForUIIfNeed:error]) {
+            return NO;
+        } else {
+            return YES;
+        }
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
+    }
+    return NO;
+}
+
+- (BOOL)yndwb_hookLoadingForWKIfNeed:(NSError**)error
+{
+    __weak typeof(self) wself = self;
+    [self.KVOControllerNonRetaining observe:self keyPath:@"loading" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
+        __strong typeof(self) self = wself;
+        BOOL isLoading = [change[NSKeyValueChangeNewKey] boolValue];
+        if (self.window && !isLoading) {
+            [self yndwb_requestDetectWhenFinishLoading];
+        }
+    }];
+    return YES;
+}
+
+- (BOOL)yndwb_hookLoadingForUIIfNeed:(NSError**)error
+{
+    return NO;
+}
+
+#pragma mark - detect
 
 - (void)yndwb_requestDetectWhenBack
 {
