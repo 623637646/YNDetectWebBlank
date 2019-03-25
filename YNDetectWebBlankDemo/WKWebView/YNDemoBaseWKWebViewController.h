@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
+
+typedef NS_ENUM(NSUInteger, YNDemoBaseWebViewType) {
+    YNDemoBaseWebViewTypeWK,
+    YNDemoBaseWebViewTypeUI
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface YNDemoBaseWKWebViewController : UIViewController
 
-@property (nonatomic, weak, readonly) WKWebView *webView;
+@property (nonatomic, weak, readonly) UIView *webView;
+
+- (instancetype)initWithType:(YNDemoBaseWebViewType)type;
 
 - (void)loadWithURLString:(NSString *)URLString;
 

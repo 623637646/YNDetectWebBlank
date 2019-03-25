@@ -9,10 +9,12 @@
 #import "YNDemoBaseWKWebViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YNDetectWebBlank/YNDetectWebBlank.h>
+#import <WebKit/WebKit.h>
 
 @interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate>
 
-@property (nonatomic, weak) WKWebView *webView;
+@property (nonatomic, assign) YNDemoBaseWebViewType type;
+@property (nonatomic, weak) UIView *webView;
 @property (nonatomic, weak) MBProgressHUD *loadingHUD;
 @property (nonatomic, weak) MBProgressHUD *toastHUD;
 
@@ -20,12 +22,27 @@
 
 @implementation YNDemoBaseWKWebViewController
 
+- (instancetype)initWithType:(YNDemoBaseWebViewType)type
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.type = type;
+    }
+    return self;
+}
+
 - (void)loadWithURLString:(NSString *)URLString
 {
     NSURL *URL = [NSURL URLWithString:URLString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:URL];
     request.timeoutInterval = 3;
-    [self.webView loadRequest:request];
+    if ([self.webView isKindOfClass:WKWebView.class]) {
+        [((WKWebView *)self.webView) loadRequest:request];
+    } else if ([self.webView isKindOfClass:UIWebView.class]){
+        [((UIWebView *)self.webView) loadRequest:request];
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
+    }
 }
 
 - (void)makeWebViewBlank
