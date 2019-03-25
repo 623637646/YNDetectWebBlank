@@ -7,7 +7,6 @@
 //
 
 #import "YNDemoViewController.h"
-#import "YNDemoUIWebViewController.h"
 #import "YNDemoWKWebViewController.h"
 #import "YNDemoServerConfig.h"
 #import "NSString+YNDemo.h"
@@ -27,7 +26,6 @@
     [super viewDidLoad];
     self.title = @"YNDetectWebBlank Demo";
     self.dataSource = @[
-                        [YNDemoListDataSourceItem itemWithTitle:@"UIWebView Demos" obj:YNDemoUIWebViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"WKWebView Demos" obj:YNDemoWKWebViewController.class],
                         ];
     [self setUpIPButton];
