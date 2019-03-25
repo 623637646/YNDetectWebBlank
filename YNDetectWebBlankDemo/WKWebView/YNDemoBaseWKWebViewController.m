@@ -43,10 +43,10 @@
     webView.navigationDelegate = self;
     NSError *error;
     __weak typeof(self) wself = self;
-    [webView yndwb_detectBlankWithBlock:^(WKWebView *webView, YNDetectWebBlankAction action, double detectionTime) {
+    [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
         __strong typeof(self) self = wself;
         NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
-        NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).",actionString, detectionTime];
+        NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
         [self showToast:toast];
     } error:&error];
     NSAssert(!error, @"");
@@ -75,6 +75,7 @@
     [self hideToastIfNeed];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.label.text = text;
+    HUD.label.numberOfLines = 0;
     HUD.offset = CGPointMake(0, 100);
     HUD.mode = MBProgressHUDModeText;
 }

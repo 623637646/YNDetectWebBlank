@@ -7,19 +7,7 @@
 //
 
 #import <WebKit/WebKit.h>
-
-extern NSString *const YNDWBErrorDomin;
-
-typedef enum : NSUInteger {
-    YNDWBErrorCodeParameterInvaild,
-} YNDWBErrorCode;
-
-typedef NS_ENUM(NSUInteger, YNDetectWebBlankAction) {
-    YNDetectWebBlankActionLoaded,
-    YNDetectWebBlankActionAppear
-};
-
-typedef void (^YNDetectWebBlankBlock)(WKWebView *webView, YNDetectWebBlankAction action, double detectionTime);
+#import "YNDetectWebBlankCommon.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
