@@ -19,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak, readonly) UIView *webView;
 
-- (instancetype)initWithType:(YNDemoBaseWebViewType)type;
+- (instancetype)initWithType:(YNDemoBaseWebViewType)type NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder NS_UNAVAILABLE;
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
 
 - (void)loadWithURLString:(NSString *)URLString;
 

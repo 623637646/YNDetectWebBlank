@@ -76,11 +76,21 @@
         }
         case YNDemoBaseWebViewTypeUI:{
             UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-            webView.backgroundColor = [UIColor whiteColor];
             webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            webView.backgroundColor = [UIColor whiteColor];
             webView.delegate = self;
+            NSError *error;
+            __weak typeof(self) wself = self;
+            [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+                __strong typeof(self) self = wself;
+                NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
+                NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
+                [self showToast:toast];
+            } error:&error];
+            NSAssert(!error, @"");
             [self.view addSubview:webView];
             self.webView = webView;
+            break;
         }
         default:
             break;
@@ -94,7 +104,18 @@
     NSAssert(!self.loadingHUD, @"Is loading, can't show again!");
     [self hideToastIfNeed];
     self.loadingHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.loadingHUD.label.text = @"WKWebView loading";
+    switch (self.type) {
+        case YNDemoBaseWebViewTypeWK:{
+            self.loadingHUD.label.text = @"WKWebView loading";
+            break;
+        }
+        case YNDemoBaseWebViewTypeUI:{
+            self.loadingHUD.label.text = @"UIWebView loading";
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)hideLoading

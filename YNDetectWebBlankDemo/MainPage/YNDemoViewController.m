@@ -26,7 +26,14 @@
     [super viewDidLoad];
     self.title = @"YNDetectWebBlank Demo";
     self.dataSource = @[
-                        [YNDemoListDataSourceItem itemWithTitle:@"WKWebView Demos" obj:YNDemoWebViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"UIWebView Demos" obj:({
+                            YNDemoWebViewController *vc = [[YNDemoWebViewController alloc] initWithType:YNDemoWebViewControllerTypeUI];
+                            vc;
+                        })],
+                        [YNDemoListDataSourceItem itemWithTitle:@"WKWebView Demos" obj:({
+                            YNDemoWebViewController *vc = [[YNDemoWebViewController alloc] initWithType:YNDemoWebViewControllerTypeWK];
+                            vc;
+                        })],
                         ];
     [self setUpIPButton];
 }
@@ -59,8 +66,7 @@
         [self updateIP];
         return;
     }
-    UIViewController *vc = [[item.obj alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:item.obj animated:YES];
 }
 
 #pragma mark - utilities

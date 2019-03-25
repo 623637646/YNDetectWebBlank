@@ -14,17 +14,38 @@
 #import "YNDemoWebCoveredViewController.h"
 #import "YNDemoWebHasSubviewsViewController.h"
 #import "YNDemoWebComplexViewController.h"
+#import "YNDemoBaseWebViewController.h"
 
 @interface YNDemoWebViewController ()
+
+@property (nonatomic, assign) YNDemoWebViewControllerType type;
 
 @end
 
 @implementation YNDemoWebViewController
 
+- (instancetype)initWithType:(YNDemoWebViewControllerType)type
+{
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.type = type;
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    return [self initWithType:YNDemoWebViewControllerTypeWK];
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    return [self initWithType:YNDemoWebViewControllerTypeWK];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"WKWebView";
     self.dataSource = @[
                         [YNDemoListDataSourceItem itemWithTitle:@"Normal" obj:YNDemoWebNormalViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank" obj:YNDemoWebBlankViewController.class],
@@ -38,8 +59,20 @@
 
 - (void)didSelectItem:(YNDemoListDataSourceItem *)item
 {
-    UIViewController *vc = [[item.obj alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    switch (self.type) {
+        case YNDemoWebViewControllerTypeWK:{
+            UIViewController *vc = [(YNDemoBaseWebViewController*)[item.obj alloc] initWithType:YNDemoBaseWebViewTypeWK];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case YNDemoWebViewControllerTypeUI:{
+            UIViewController *vc = [(YNDemoBaseWebViewController*)[item.obj alloc] initWithType:YNDemoBaseWebViewTypeUI];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end
