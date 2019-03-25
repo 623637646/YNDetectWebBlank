@@ -1,18 +1,18 @@
 //
-//  YNDemoWKWebComplexViewController.m
+//  YNDemoWebComplexViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 21/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoWKWebComplexViewController.h"
+#import "YNDemoWebComplexViewController.h"
 
-@interface YNDemoWKWebComplexViewController ()
+@interface YNDemoWebComplexViewController ()
 
 @end
 
-@implementation YNDemoWKWebComplexViewController
+@implementation YNDemoWebComplexViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

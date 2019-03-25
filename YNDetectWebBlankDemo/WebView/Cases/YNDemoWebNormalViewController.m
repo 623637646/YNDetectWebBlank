@@ -1,20 +1,20 @@
 //
-//  YNDemoWKWebNormalViewController.m
+//  YNDemoWebNormalViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoWKWebNormalViewController.h"
+#import "YNDemoWebNormalViewController.h"
 #import <WebKit/WebKit.h>
 #import "YNDemoServerConfig.h"
 
-@interface YNDemoWKWebNormalViewController ()
+@interface YNDemoWebNormalViewController ()
 
 @end
 
-@implementation YNDemoWKWebNormalViewController
+@implementation YNDemoWebNormalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

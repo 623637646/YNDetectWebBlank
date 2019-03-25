@@ -1,16 +1,17 @@
 //
-//  YNDemoWKWebBlankViewController.h
+//  YNDemoWebViewController.h
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoBaseWKWebViewController.h"
+#import <UIKit/UIKit.h>
+#import "YNDemoListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YNDemoWKWebBlankViewController : YNDemoBaseWKWebViewController
+@interface YNDemoWebViewController : YNDemoListViewController
 
 @end
 

@@ -1,19 +1,19 @@
 //
-//  YNDemoWKWebHasSubviewsViewController.m
+//  YNDemoWebHasSubviewsViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 21/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoWKWebHasSubviewsViewController.h"
+#import "YNDemoWebHasSubviewsViewController.h"
 #import "YNDemoServerConfig.h"
 
-@interface YNDemoWKWebHasSubviewsViewController ()
+@interface YNDemoWebHasSubviewsViewController ()
 
 @end
 
-@implementation YNDemoWKWebHasSubviewsViewController
+@implementation YNDemoWebHasSubviewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

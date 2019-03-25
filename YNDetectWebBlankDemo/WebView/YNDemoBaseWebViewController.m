@@ -1,17 +1,17 @@
 //
-//  YNDemoBaseWKWebViewController.m
+//  YNDemoBaseWebViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoBaseWKWebViewController.h"
+#import "YNDemoBaseWebViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <YNDetectWebBlank/YNDetectWebBlank.h>
 #import <WebKit/WebKit.h>
 
-@interface YNDemoBaseWKWebViewController ()<WKNavigationDelegate, UIWebViewDelegate>
+@interface YNDemoBaseWebViewController ()<WKNavigationDelegate, UIWebViewDelegate>
 
 @property (nonatomic, assign) YNDemoBaseWebViewType type;
 @property (nonatomic, weak) UIView *webView;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation YNDemoBaseWKWebViewController
+@implementation YNDemoBaseWebViewController
 
 - (instancetype)initWithType:(YNDemoBaseWebViewType)type
 {

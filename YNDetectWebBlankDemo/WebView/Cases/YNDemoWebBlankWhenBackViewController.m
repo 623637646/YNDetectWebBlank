@@ -1,15 +1,15 @@
 //
-//  YNDemoWKWebBlankWhenBackViewController.m
+//  YNDemoWebBlankWhenBackViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoWKWebBlankWhenBackViewController.h"
+#import "YNDemoWebBlankWhenBackViewController.h"
 #import "YNDemoServerConfig.h"
 
-@implementation YNDemoWKWebBlankWhenBackViewController
+@implementation YNDemoWebBlankWhenBackViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

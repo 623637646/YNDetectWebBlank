@@ -1,5 +1,5 @@
 //
-//  YNDemoBaseWKWebViewController.h
+//  YNDemoBaseWebViewController.h
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 14/3/19.
@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, YNDemoBaseWebViewType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface YNDemoBaseWKWebViewController : UIViewController
+@interface YNDemoBaseWebViewController : UIViewController
 
 @property (nonatomic, weak, readonly) UIView *webView;
 

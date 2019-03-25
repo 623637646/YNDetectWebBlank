@@ -1,19 +1,19 @@
 //
-//  YNDemoWKWebCoveredViewController.m
+//  YNDemoWebCoveredViewController.m
 //  YNDetectWebBlankDemo
 //
 //  Created by Wang Ya on 21/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "YNDemoWKWebCoveredViewController.h"
+#import "YNDemoWebCoveredViewController.h"
 #import "YNDemoServerConfig.h"
 
-@interface YNDemoWKWebCoveredViewController ()
+@interface YNDemoWebCoveredViewController ()
 
 @end
 
-@implementation YNDemoWKWebCoveredViewController
+@implementation YNDemoWebCoveredViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

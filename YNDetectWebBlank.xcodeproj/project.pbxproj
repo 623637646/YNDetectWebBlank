@@ -8,27 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		4BD4DEBB284995FC6AAEDD9A /* libPods-YNDetectWebBlank.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1C74CF65445D5ECB7983AA4 /* libPods-YNDetectWebBlank.a */; };
-		5C0220CB223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0220CA223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m */; };
+		5C0220CB223A0CF90035DCDA /* YNDemoWebNormalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0220CA223A0CF90035DCDA /* YNDemoWebNormalViewController.m */; };
 		5C26AE2A2239F7510047B81A /* YNDetectWebBlank.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C26AE282239F7510047B81A /* YNDetectWebBlank.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C26AE382239F8450047B81A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C26AE372239F8450047B81A /* AppDelegate.m */; };
 		5C26AE402239F8460047B81A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C26AE3F2239F8460047B81A /* Assets.xcassets */; };
 		5C26AE432239F8460047B81A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C26AE412239F8460047B81A /* LaunchScreen.storyboard */; };
 		5C26AE462239F8460047B81A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C26AE452239F8460047B81A /* main.m */; };
-		5C3A8E70223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */; };
-		5C3A8E7C223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */; };
-		5C3A8E82223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */; };
+		5C3A8E70223A5F8600FA9C1A /* YNDemoWebBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E6F223A5F8600FA9C1A /* YNDemoWebBlankViewController.m */; };
+		5C3A8E7C223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E7B223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m */; };
+		5C3A8E82223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */; };
 		5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */; };
 		5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */; };
 		5C80580D2244EDC30069E8E1 /* YNDetectWebBlankCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5C80580E2244EDC30069E8E1 /* YNDetectWebBlankCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80580C2244EDC30069E8E1 /* YNDetectWebBlankCommon.m */; };
-		5C8AC0862243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */; };
-		5C8AC0892243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */; };
-		5C8AC08C2243A64F004D7DEF /* YNDemoWKWebComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC08B2243A64F004D7DEF /* YNDemoWKWebComplexViewController.m */; };
+		5C8AC0862243A1C7004D7DEF /* YNDemoWebCoveredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */; };
+		5C8AC0892243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */; };
+		5C8AC08C2243A64F004D7DEF /* YNDemoWebComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */; };
 		5CE6425E223A0A4300EC19BB /* YNDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */; };
 		5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425D223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m */; };
 		5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE64262223A0A6300EC19BB /* YNDemoViewController.m */; };
-		5CE6426B223A0B4F00EC19BB /* YNDemoWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6426A223A0B4F00EC19BB /* YNDemoWKWebViewController.m */; };
-		5CEA328C223A2F170056B01E /* YNDemoBaseWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA328B223A2F170056B01E /* YNDemoBaseWKWebViewController.m */; };
+		5CE6426B223A0B4F00EC19BB /* YNDemoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6426A223A0B4F00EC19BB /* YNDemoWebViewController.m */; };
+		5CEA328C223A2F170056B01E /* YNDemoBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA328B223A2F170056B01E /* YNDemoBaseWebViewController.m */; };
 		5CEA328F223A3CA00056B01E /* YNDemoServerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA328E223A3CA00056B01E /* YNDemoServerConfig.m */; };
 		5CEA3291223A3CE20056B01E /* YNDemoMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEA3290223A3CE20056B01E /* YNDemoMacro.h */; };
 		5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA3296223A560A0056B01E /* NSString+YNDemo.m */; };
@@ -43,8 +43,8 @@
 
 /* Begin PBXFileReference section */
 		2E7FF7DEE4DBB8D2769077CE /* Pods-YNDetectWebBlank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNDetectWebBlank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YNDetectWebBlank/Pods-YNDetectWebBlank.debug.xcconfig"; sourceTree = "<group>"; };
-		5C0220C9223A0CF90035DCDA /* YNDemoWKWebNormalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebNormalViewController.h; sourceTree = "<group>"; };
-		5C0220CA223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebNormalViewController.m; sourceTree = "<group>"; };
+		5C0220C9223A0CF90035DCDA /* YNDemoWebNormalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebNormalViewController.h; sourceTree = "<group>"; };
+		5C0220CA223A0CF90035DCDA /* YNDemoWebNormalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebNormalViewController.m; sourceTree = "<group>"; };
 		5C26AE252239F7510047B81A /* YNDetectWebBlank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YNDetectWebBlank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C26AE282239F7510047B81A /* YNDetectWebBlank.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlank.h; sourceTree = "<group>"; };
 		5C26AE292239F7510047B81A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,32 +55,32 @@
 		5C26AE422239F8460047B81A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C26AE442239F8460047B81A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C26AE452239F8460047B81A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5C3A8E6E223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebBlankViewController.h; sourceTree = "<group>"; };
-		5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebBlankViewController.m; sourceTree = "<group>"; };
-		5C3A8E7A223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebTimeOutViewController.h; sourceTree = "<group>"; };
-		5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebTimeOutViewController.m; sourceTree = "<group>"; };
-		5C3A8E80223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebBlankWhenBackViewController.h; sourceTree = "<group>"; };
-		5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebBlankWhenBackViewController.m; sourceTree = "<group>"; };
+		5C3A8E6E223A5F8600FA9C1A /* YNDemoWebBlankViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebBlankViewController.h; sourceTree = "<group>"; };
+		5C3A8E6F223A5F8600FA9C1A /* YNDemoWebBlankViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebBlankViewController.m; sourceTree = "<group>"; };
+		5C3A8E7A223A62F100FA9C1A /* YNDemoWebTimeOutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebTimeOutViewController.h; sourceTree = "<group>"; };
+		5C3A8E7B223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebTimeOutViewController.m; sourceTree = "<group>"; };
+		5C3A8E80223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebBlankWhenBackViewController.h; sourceTree = "<group>"; };
+		5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebBlankWhenBackViewController.m; sourceTree = "<group>"; };
 		5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWB.h"; sourceTree = "<group>"; };
 		5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWB.m"; sourceTree = "<group>"; };
 		5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlankCommon.h; sourceTree = "<group>"; };
 		5C80580C2244EDC30069E8E1 /* YNDetectWebBlankCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDetectWebBlankCommon.m; sourceTree = "<group>"; };
-		5C8AC0842243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebCoveredViewController.h; sourceTree = "<group>"; };
-		5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebCoveredViewController.m; sourceTree = "<group>"; };
-		5C8AC0872243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebHasSubviewsViewController.h; sourceTree = "<group>"; };
-		5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebHasSubviewsViewController.m; sourceTree = "<group>"; };
-		5C8AC08A2243A64F004D7DEF /* YNDemoWKWebComplexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebComplexViewController.h; sourceTree = "<group>"; };
-		5C8AC08B2243A64F004D7DEF /* YNDemoWKWebComplexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebComplexViewController.m; sourceTree = "<group>"; };
+		5C8AC0842243A1C7004D7DEF /* YNDemoWebCoveredViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebCoveredViewController.h; sourceTree = "<group>"; };
+		5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebCoveredViewController.m; sourceTree = "<group>"; };
+		5C8AC0872243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebHasSubviewsViewController.h; sourceTree = "<group>"; };
+		5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebHasSubviewsViewController.m; sourceTree = "<group>"; };
+		5C8AC08A2243A64F004D7DEF /* YNDemoWebComplexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebComplexViewController.h; sourceTree = "<group>"; };
+		5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebComplexViewController.m; sourceTree = "<group>"; };
 		5CE6425A223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoTitleCollectionViewCell.h; sourceTree = "<group>"; };
 		5CE6425B223A0A4300EC19BB /* YNDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoListViewController.h; sourceTree = "<group>"; };
 		5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDemoListViewController.m; sourceTree = "<group>"; };
 		5CE6425D223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDemoTitleCollectionViewCell.m; sourceTree = "<group>"; };
 		5CE64261223A0A6300EC19BB /* YNDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoViewController.h; sourceTree = "<group>"; };
 		5CE64262223A0A6300EC19BB /* YNDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDemoViewController.m; sourceTree = "<group>"; };
-		5CE64269223A0B4F00EC19BB /* YNDemoWKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWKWebViewController.h; sourceTree = "<group>"; };
-		5CE6426A223A0B4F00EC19BB /* YNDemoWKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWKWebViewController.m; sourceTree = "<group>"; };
-		5CEA328A223A2F170056B01E /* YNDemoBaseWKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoBaseWKWebViewController.h; sourceTree = "<group>"; };
-		5CEA328B223A2F170056B01E /* YNDemoBaseWKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoBaseWKWebViewController.m; sourceTree = "<group>"; };
+		5CE64269223A0B4F00EC19BB /* YNDemoWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebViewController.h; sourceTree = "<group>"; };
+		5CE6426A223A0B4F00EC19BB /* YNDemoWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebViewController.m; sourceTree = "<group>"; };
+		5CEA328A223A2F170056B01E /* YNDemoBaseWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoBaseWebViewController.h; sourceTree = "<group>"; };
+		5CEA328B223A2F170056B01E /* YNDemoBaseWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoBaseWebViewController.m; sourceTree = "<group>"; };
 		5CEA328D223A3CA00056B01E /* YNDemoServerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoServerConfig.h; sourceTree = "<group>"; };
 		5CEA328E223A3CA00056B01E /* YNDemoServerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoServerConfig.m; sourceTree = "<group>"; };
 		5CEA3290223A3CE20056B01E /* YNDemoMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoMacro.h; sourceTree = "<group>"; };
@@ -133,20 +133,20 @@
 		5C0220C8223A0CE90035DCDA /* Cases */ = {
 			isa = PBXGroup;
 			children = (
-				5C0220C9223A0CF90035DCDA /* YNDemoWKWebNormalViewController.h */,
-				5C0220CA223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m */,
-				5C3A8E6E223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.h */,
-				5C3A8E6F223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m */,
-				5C3A8E7A223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.h */,
-				5C3A8E7B223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m */,
-				5C3A8E80223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.h */,
-				5C3A8E81223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m */,
-				5C8AC0842243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.h */,
-				5C8AC0852243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m */,
-				5C8AC0872243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.h */,
-				5C8AC0882243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m */,
-				5C8AC08A2243A64F004D7DEF /* YNDemoWKWebComplexViewController.h */,
-				5C8AC08B2243A64F004D7DEF /* YNDemoWKWebComplexViewController.m */,
+				5C0220C9223A0CF90035DCDA /* YNDemoWebNormalViewController.h */,
+				5C0220CA223A0CF90035DCDA /* YNDemoWebNormalViewController.m */,
+				5C3A8E6E223A5F8600FA9C1A /* YNDemoWebBlankViewController.h */,
+				5C3A8E6F223A5F8600FA9C1A /* YNDemoWebBlankViewController.m */,
+				5C3A8E7A223A62F100FA9C1A /* YNDemoWebTimeOutViewController.h */,
+				5C3A8E7B223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m */,
+				5C3A8E80223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.h */,
+				5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */,
+				5C8AC0842243A1C7004D7DEF /* YNDemoWebCoveredViewController.h */,
+				5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */,
+				5C8AC0872243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.h */,
+				5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */,
+				5C8AC08A2243A64F004D7DEF /* YNDemoWebComplexViewController.h */,
+				5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -186,7 +186,7 @@
 			children = (
 				5CE64259223A0A4300EC19BB /* Utilities */,
 				5CE64260223A0A6300EC19BB /* MainPage */,
-				5CE64268223A0B3900EC19BB /* WKWebView */,
+				5CE64268223A0B3900EC19BB /* WebView */,
 				5C26AE362239F8450047B81A /* AppDelegate.h */,
 				5C26AE372239F8450047B81A /* AppDelegate.m */,
 				5C26AE3F2239F8460047B81A /* Assets.xcassets */,
@@ -235,16 +235,16 @@
 			path = MainPage;
 			sourceTree = "<group>";
 		};
-		5CE64268223A0B3900EC19BB /* WKWebView */ = {
+		5CE64268223A0B3900EC19BB /* WebView */ = {
 			isa = PBXGroup;
 			children = (
 				5C0220C8223A0CE90035DCDA /* Cases */,
-				5CE64269223A0B4F00EC19BB /* YNDemoWKWebViewController.h */,
-				5CE6426A223A0B4F00EC19BB /* YNDemoWKWebViewController.m */,
-				5CEA328A223A2F170056B01E /* YNDemoBaseWKWebViewController.h */,
-				5CEA328B223A2F170056B01E /* YNDemoBaseWKWebViewController.m */,
+				5CE64269223A0B4F00EC19BB /* YNDemoWebViewController.h */,
+				5CE6426A223A0B4F00EC19BB /* YNDemoWebViewController.m */,
+				5CEA328A223A2F170056B01E /* YNDemoBaseWebViewController.h */,
+				5CEA328B223A2F170056B01E /* YNDemoBaseWebViewController.m */,
 			);
-			path = WKWebView;
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		5CEEFBA32239FAC0005D6CB5 /* Classes */ = {
@@ -444,22 +444,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8AC0862243A1C7004D7DEF /* YNDemoWKWebCoveredViewController.m in Sources */,
+				5C8AC0862243A1C7004D7DEF /* YNDemoWebCoveredViewController.m in Sources */,
 				5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */,
-				5C3A8E70223A5F8600FA9C1A /* YNDemoWKWebBlankViewController.m in Sources */,
-				5CE6426B223A0B4F00EC19BB /* YNDemoWKWebViewController.m in Sources */,
-				5C3A8E7C223A62F100FA9C1A /* YNDemoWKWebTimeOutViewController.m in Sources */,
+				5C3A8E70223A5F8600FA9C1A /* YNDemoWebBlankViewController.m in Sources */,
+				5CE6426B223A0B4F00EC19BB /* YNDemoWebViewController.m in Sources */,
+				5C3A8E7C223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m in Sources */,
 				5CE6425E223A0A4300EC19BB /* YNDemoListViewController.m in Sources */,
-				5CEA328C223A2F170056B01E /* YNDemoBaseWKWebViewController.m in Sources */,
+				5CEA328C223A2F170056B01E /* YNDemoBaseWebViewController.m in Sources */,
 				5CEA328F223A3CA00056B01E /* YNDemoServerConfig.m in Sources */,
-				5C3A8E82223A6BF200FA9C1A /* YNDemoWKWebBlankWhenBackViewController.m in Sources */,
+				5C3A8E82223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m in Sources */,
 				5C26AE462239F8460047B81A /* main.m in Sources */,
 				5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */,
-				5C8AC08C2243A64F004D7DEF /* YNDemoWKWebComplexViewController.m in Sources */,
-				5C8AC0892243A1E4004D7DEF /* YNDemoWKWebHasSubviewsViewController.m in Sources */,
+				5C8AC08C2243A64F004D7DEF /* YNDemoWebComplexViewController.m in Sources */,
+				5C8AC0892243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m in Sources */,
 				5C26AE382239F8450047B81A /* AppDelegate.m in Sources */,
 				5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */,
-				5C0220CB223A0CF90035DCDA /* YNDemoWKWebNormalViewController.m in Sources */,
+				5C0220CB223A0CF90035DCDA /* YNDemoWebNormalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
