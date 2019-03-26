@@ -17,6 +17,8 @@
 		5C3A8E70223A5F8600FA9C1A /* YNDemoWebBlankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E6F223A5F8600FA9C1A /* YNDemoWebBlankViewController.m */; };
 		5C3A8E7C223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E7B223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m */; };
 		5C3A8E82223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */; };
+		5C59BD6C224A3C2700F5B167 /* UIView+YNDWBDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */; };
+		5C59BD6D224A3C2700F5B167 /* UIView+YNDWBDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */; };
 		5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */; };
 		5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */; };
 		5C80580D2244EDC30069E8E1 /* YNDetectWebBlankCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,6 +63,8 @@
 		5C3A8E7B223A62F100FA9C1A /* YNDemoWebTimeOutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebTimeOutViewController.m; sourceTree = "<group>"; };
 		5C3A8E80223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebBlankWhenBackViewController.h; sourceTree = "<group>"; };
 		5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebBlankWhenBackViewController.m; sourceTree = "<group>"; };
+		5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YNDWBDetect.h"; sourceTree = "<group>"; };
+		5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNDWBDetect.m"; sourceTree = "<group>"; };
 		5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWB.h"; sourceTree = "<group>"; };
 		5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWB.m"; sourceTree = "<group>"; };
 		5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlankCommon.h; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				5C6ED2B9223A030500B308EB /* Public */,
+				5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */,
+				5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */,
 				5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */,
 				5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */,
 				5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */,
@@ -278,6 +284,7 @@
 				5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */,
 				5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */,
 				5C80580D2244EDC30069E8E1 /* YNDetectWebBlankCommon.h in Headers */,
+				5C59BD6C224A3C2700F5B167 /* UIView+YNDWBDetect.h in Headers */,
 				5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWB.h in Headers */,
 				5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */,
 				5C26AE2A2239F7510047B81A /* YNDetectWebBlank.h in Headers */,
@@ -436,6 +443,7 @@
 				5CEEFBAF2239FC9F005D6CB5 /* WKWebView+YNDWB.m in Sources */,
 				5C80580E2244EDC30069E8E1 /* YNDetectWebBlankCommon.m in Sources */,
 				5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */,
+				5C59BD6D224A3C2700F5B167 /* UIView+YNDWBDetect.m in Sources */,
 				5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

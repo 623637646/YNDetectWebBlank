@@ -7,7 +7,7 @@
 //
 
 #import "WKWebView+YNDWB.h"
-#import "UIView+YNDWB.h"
+#import "UIView+YNDWBDetect.h"
 
 @implementation WKWebView (YNDWB)
 

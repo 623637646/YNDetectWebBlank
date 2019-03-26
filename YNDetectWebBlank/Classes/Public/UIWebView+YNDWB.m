@@ -7,7 +7,7 @@
 //
 
 #import "UIWebView+YNDWB.h"
-#import "UIView+YNDWB.h"
+#import "UIView+YNDWBDetect.h"
 
 @implementation UIWebView (YNDWB)
 
