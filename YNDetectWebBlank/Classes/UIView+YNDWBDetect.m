@@ -87,7 +87,7 @@
         if (!self) {
             return;
         }
-        if (self.window && ![self yndwb_isLoading]) {
+        if ([self yndwb_needDetect]) {
             [self yndwb_detectWithAction:action];
         }
         self.yndwb_deployDetectionBlock = nil;
@@ -104,12 +104,8 @@
 
 - (void)yndwb_detectWithAction:(YNDetectWebBlankAction)action
 {
-    NSAssert(self.window, @"yndwb_detect: Window is nil");
-    NSAssert(![self yndwb_isLoading], @"yndwb_detect: Is loading");
-    if (!self.window) {
-        return;
-    }
-    if ([self yndwb_isLoading]) {
+    NSAssert([self yndwb_needDetect], @"Don't need detect now");
+    if (![self yndwb_needDetect]) {
         return;
     }
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
@@ -123,6 +119,11 @@
 }
 
 #pragma mark - WKWebView UIWebView utilities
+
+- (BOOL)yndwb_needDetect
+{
+    return self.window && ![self yndwb_isLoading] && [self yndwb_URL];
+}
 
 - (BOOL)yndwb_isLoading
 {
@@ -153,8 +154,7 @@
     __weak typeof(self) wself = self;
     self.yndwb_didMoveToWindowBlock = ^(UIWindow *window) {
         __strong typeof(self) self = wself;
-        if (window && ![self yndwb_isLoading]) {
-            // TODO How about non-URL request
+        if ([self yndwb_needDetect]) {
             [self yndwb_requestDetectWhenBack];
         } else {
             [self yndwb_cancelDeployDetectionBlock];
