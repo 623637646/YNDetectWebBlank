@@ -36,6 +36,7 @@
         if (self.yndwb_didMoveToWindowToken) {
             BOOL removed = [self.yndwb_didMoveToWindowToken remove];
             NSAssert(removed, @"not removed");
+            self.yndwb_didMoveToWindowToken = nil;
         }
     }
 }
