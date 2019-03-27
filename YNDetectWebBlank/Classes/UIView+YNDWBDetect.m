@@ -1,5 +1,5 @@
 //
-//  UIView+YNDWBDetect.m
+//  UIView+YNDWBPrivateDetect.m
 //  YNDetectWebBlank
 //
 //  Created by Wang Ya on 26/3/19.
@@ -7,119 +7,59 @@
 //
 
 #import "UIView+YNDWBDetect.h"
-#import <objc/runtime.h>
-#import <KVOController/KVOController.h>
 #import <WebKit/WebKit.h>
-#import "UIView+YNDWB.h"
+#import "UIView+YNDWBPrivate.h"
+#import "UIWebView+YNDWBPrivate.h"
+#import <objc/runtime.h>
 
 @implementation UIView (YNDWBDetect)
 
-#pragma mark - public
+#pragma mark - setter getter
 
-- (BOOL)yndwb_detectBlankWithBlock:(YNDetectWebBlankBlock)block error:(NSError**)error
++ (void)setYndwb_delayDetectWhenLoaded:(NSTimeInterval)yndwb_delayDetectWhenLoaded
 {
-    // check parameter
-    NSParameterAssert(block != nil);
-    NSParameterAssert(*error == nil);
-    if (block == nil || *error != nil) {
-        *error = [NSError errorWithDomain:YNDWBErrorDomin code:YNDWBErrorCodeParameterInvaild userInfo:nil];
-        return NO;
+    NSParameterAssert(yndwb_delayDetectWhenLoaded > 0);
+    if (yndwb_delayDetectWhenLoaded <= 0) {
+        return;
     }
-    
-    // property
-    self.yndwb_block = block;
-    
-    // hook
-    if (![self yndwb_hookDidMoveToWindowIfNeed:error]) {
-        return NO;
-    }
-    if (![self yndwb_hookLoadingIfNeed:error]) {
-        return NO;
-    }
-    
-    return YES;
+    objc_setAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded), @(yndwb_delayDetectWhenLoaded), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-#pragma mark - hook
-
-- (BOOL)yndwb_hookDidMoveToWindowIfNeed:(NSError**)error
++ (NSTimeInterval)yndwb_delayDetectWhenLoaded
 {
-    if (!self.yndwb_didMoveToWindowToken) {
-        __weak typeof(self) wself = self;
-        self.yndwb_didMoveToWindowToken = [self aspect_hookSelector:@selector(didMoveToWindow) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
-            __strong typeof(self) self = wself;
-            if (self.window && ![self yndwb_isLoading]) {
-                // TODO How about non-URL request
-                [self yndwb_requestDetectWhenBack];
-            } else {
-                [self yndwb_cancelDeployDetectionBlock];
-            }
-        } error:error];
-        if (*error != nil) {
-            return NO;
-        }
+    id value = objc_getAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded));
+    if (!value) {
+        return 0.2;
     }
-    return YES;
+    return [value doubleValue];
 }
 
-- (BOOL)yndwb_hookLoadingIfNeed:(NSError**)error
+- (void)setYndwb_block:(YNDetectWebBlankBlock)yndwb_block
 {
-    if ([self isKindOfClass:WKWebView.class]) {
-        if (![self yndwb_hookLoadingForWKIfNeed:error]) {
-            return NO;
-        } else {
-            return YES;
-        }
-    } else if ([self isKindOfClass:UIWebView.class]){
-        if (![self yndwb_hookLoadingForUIIfNeed:error]) {
-            return NO;
-        } else {
-            return YES;
-        }
+    objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    // detect
+    if (yndwb_block) {
+        [self yndwb_setUpDidMoveToWindowBlock];
+        [self yndwb_setUpIsLoadingUpdateBlock];
     } else {
-        NSAssert(NO, @"self is not UIWebView or WKWebView");
+        [self yndwb_removeDidMoveToWindowBlock];
+        [self yndwb_removeIsLoadingUpdateBlock];
     }
-    return NO;
 }
 
-- (BOOL)yndwb_hookLoadingForWKIfNeed:(NSError**)error
+- (YNDetectWebBlankBlock)yndwb_block
 {
-    __weak typeof(self) wself = self;
-    [self.KVOControllerNonRetaining observe:self keyPath:@"loading" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        __strong typeof(self) self = wself;
-        BOOL isLoading = [change[NSKeyValueChangeNewKey] boolValue];
-        if (self.window && !isLoading) {
-            [self yndwb_requestDetectWhenFinishLoading];
-        }
-    }];
-    return YES;
+    return objc_getAssociatedObject(self, @selector(yndwb_block));
 }
 
-- (BOOL)yndwb_hookLoadingForUIIfNeed:(NSError**)error
+- (void)setYndwb_deployDetectionBlock:(dispatch_block_t)yndwb_deployDetectionBlock
 {
-    // TODO not finish
-    __weak typeof(self) wself = self;
-    [self.KVOControllerNonRetaining observe:self keyPath:@"delegate" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
-        __strong typeof(self) self = wself;
-        id oldDelegate = change[NSKeyValueChangeOldKey];
-        if (oldDelegate) {
-            id<AspectToken> token = objc_getAssociatedObject(oldDelegate, @selector(yndwb_hookLoadingForUIIfNeed:));
-            if (token) {
-                BOOL removeSuccess = [token remove];
-                NSAssert(removeSuccess, @"AspectToken remove not success");
-            }
-        }
-        id newDelegate = change[NSKeyValueChangeNewKey];
-        if (newDelegate) {
-            id<AspectToken> token = objc_getAssociatedObject(newDelegate, @selector(yndwb_hookLoadingForUIIfNeed:));
-            NSAssert(token == nil, @"AspectToken is not nil");
-            token = [newDelegate aspect_hookSelector:@selector(webViewDidFinishLoad:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
-                __strong typeof(self) self = wself;
-                
-            } error:NULL];
-        }
-    }];
-    return YES;
+    objc_setAssociatedObject(self, @selector(yndwb_deployDetectionBlock), yndwb_deployDetectionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (dispatch_block_t)yndwb_deployDetectionBlock
+{
+    return objc_getAssociatedObject(self, @selector(yndwb_deployDetectionBlock));
 }
 
 #pragma mark - detect
@@ -182,7 +122,7 @@
     self.yndwb_block([self yndwb_URL], action, detectTime * 1000.0);
 }
 
-#pragma mark - private
+#pragma mark - WKWebView UIWebView utilities
 
 - (BOOL)yndwb_isLoading
 {
@@ -208,54 +148,60 @@
     return nil;
 }
 
-#pragma mark - getter setter
-
-- (void)setYndwb_didMoveToWindowToken:(id<AspectToken>)yndwb_didMoveToWindowToken
+- (void)yndwb_setUpDidMoveToWindowBlock
 {
-    objc_setAssociatedObject(self, @selector(yndwb_didMoveToWindowToken), yndwb_didMoveToWindowToken, OBJC_ASSOCIATION_RETAIN);
+    __weak typeof(self) wself = self;
+    self.yndwb_didMoveToWindowBlock = ^(UIWindow *window) {
+        __strong typeof(self) self = wself;
+        if (window && ![self yndwb_isLoading]) {
+            // TODO How about non-URL request
+            [self yndwb_requestDetectWhenBack];
+        } else {
+            [self yndwb_cancelDeployDetectionBlock];
+        }
+    };
 }
 
-- (id<AspectToken>)yndwb_didMoveToWindowToken
+- (void)yndwb_removeDidMoveToWindowBlock
 {
-    return objc_getAssociatedObject(self, @selector(yndwb_didMoveToWindowToken));
+    self.yndwb_didMoveToWindowBlock = nil;
 }
 
-- (void)setYndwb_block:(YNDetectWebBlankBlock)yndwb_block
+- (void)yndwb_setUpIsLoadingUpdateBlock
 {
-    objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-- (YNDetectWebBlankBlock)yndwb_block
-{
-    return objc_getAssociatedObject(self, @selector(yndwb_block));
-}
-
-- (void)setYndwb_deployDetectionBlock:(dispatch_block_t)yndwb_deployDetectionBlock
-{
-    objc_setAssociatedObject(self, @selector(yndwb_deployDetectionBlock), yndwb_deployDetectionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-- (dispatch_block_t)yndwb_deployDetectionBlock
-{
-    return objc_getAssociatedObject(self, @selector(yndwb_deployDetectionBlock));
-}
-
-+ (void)setYndwb_delayDetectWhenLoaded:(NSTimeInterval)yndwb_delayDetectWhenLoaded
-{
-    NSParameterAssert(yndwb_delayDetectWhenLoaded > 0);
-    if (yndwb_delayDetectWhenLoaded <= 0) {
-        return;
+    __weak typeof(self) wself = self;
+    if ([self isKindOfClass:WKWebView.class]) {
+        ((WKWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
+            __strong typeof(self) self = wself;
+            if (self.window && !isLoading) {
+                [self yndwb_requestDetectWhenFinishLoading];
+            } else {
+                [self yndwb_cancelDeployDetectionBlock];
+            }
+        };
+    } else if ([self isKindOfClass:UIWebView.class]){
+        ((UIWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
+            __strong typeof(self) self = wself;
+            if (self.window && !isLoading) {
+                [self yndwb_requestDetectWhenFinishLoading];
+            } else {
+                [self yndwb_cancelDeployDetectionBlock];
+            }
+        };
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
     }
-    objc_setAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded), @(yndwb_delayDetectWhenLoaded), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-+ (NSTimeInterval)yndwb_delayDetectWhenLoaded
+- (void)yndwb_removeIsLoadingUpdateBlock
 {
-    id value = objc_getAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded));
-    if (!value) {
-        return 0.2;
+    if ([self isKindOfClass:WKWebView.class]) {
+        ((WKWebView *)self).yndwb_isLoadingUpdateBlock = nil;
+    } else if ([self isKindOfClass:UIWebView.class]){
+        ((UIWebView *)self).yndwb_isLoadingUpdateBlock = nil;
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
     }
-    return [value doubleValue];
 }
 
 @end

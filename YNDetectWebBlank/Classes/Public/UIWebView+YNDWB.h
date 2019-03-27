@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YNDetectWebBlankCommon.h"
+#import "WKWebView+YNDWB.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Delay interval when webView loaded. default is 0.2s.
 @property (nonatomic, assign, class) NSTimeInterval yndwb_delayDetectWhenLoaded;
 
-// Detect
-- (BOOL)yndwb_detectBlankWithBlock:(YNDetectWebBlankBlock)block error:(NSError**)error;
+// Detect block
+@property (nonatomic, copy, nullable) YNDetectWebBlankBlock yndwb_block;
 
 @end
 

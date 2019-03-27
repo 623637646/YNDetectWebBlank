@@ -19,13 +19,15 @@
 		5C3A8E82223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */; };
 		5C59BD6C224A3C2700F5B167 /* UIView+YNDWBDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */; };
 		5C59BD6D224A3C2700F5B167 /* UIView+YNDWBDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */; };
-		5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */; };
-		5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */; };
-		5C80580D2244EDC30069E8E1 /* YNDetectWebBlankCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5C80580E2244EDC30069E8E1 /* YNDetectWebBlankCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80580C2244EDC30069E8E1 /* YNDetectWebBlankCommon.m */; };
+		5C6ED2B32239FE7200B308EB /* UIImage+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWBPrivate.h */; };
+		5C6ED2B42239FE7200B308EB /* UIImage+YNDWBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWBPrivate.m */; };
 		5C8AC0862243A1C7004D7DEF /* YNDemoWebCoveredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */; };
 		5C8AC0892243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */; };
 		5C8AC08C2243A64F004D7DEF /* YNDemoWebComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */; };
+		5CC4472D224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CC4472B224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h */; };
+		5CC4472E224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4472C224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m */; };
+		5CDD562A224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CDD5628224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h */; };
+		5CDD562B224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CDD5629224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m */; };
 		5CE6425E223A0A4300EC19BB /* YNDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */; };
 		5CE6425F223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE6425D223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.m */; };
 		5CE64263223A0A6300EC19BB /* YNDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE64262223A0A6300EC19BB /* YNDemoViewController.m */; };
@@ -34,8 +36,8 @@
 		5CEA328F223A3CA00056B01E /* YNDemoServerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA328E223A3CA00056B01E /* YNDemoServerConfig.m */; };
 		5CEA3291223A3CE20056B01E /* YNDemoMacro.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEA3290223A3CE20056B01E /* YNDemoMacro.h */; };
 		5CEA3297223A560A0056B01E /* NSString+YNDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA3296223A560A0056B01E /* NSString+YNDemo.m */; };
-		5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */; };
-		5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */; };
+		5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWBPrivate.h */; };
+		5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWBPrivate.m */; };
 		5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CEEFBAB2239FC83005D6CB5 /* UIWebView+YNDWB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */; };
 		5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,16 +67,18 @@
 		5C3A8E81223A6BF200FA9C1A /* YNDemoWebBlankWhenBackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebBlankWhenBackViewController.m; sourceTree = "<group>"; };
 		5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YNDWBDetect.h"; sourceTree = "<group>"; };
 		5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNDWBDetect.m"; sourceTree = "<group>"; };
-		5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWB.h"; sourceTree = "<group>"; };
-		5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWB.m"; sourceTree = "<group>"; };
-		5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlankCommon.h; sourceTree = "<group>"; };
-		5C80580C2244EDC30069E8E1 /* YNDetectWebBlankCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDetectWebBlankCommon.m; sourceTree = "<group>"; };
+		5C6ED2B12239FE7200B308EB /* UIImage+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWBPrivate.h"; sourceTree = "<group>"; };
+		5C6ED2B22239FE7200B308EB /* UIImage+YNDWBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWBPrivate.m"; sourceTree = "<group>"; };
 		5C8AC0842243A1C7004D7DEF /* YNDemoWebCoveredViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebCoveredViewController.h; sourceTree = "<group>"; };
 		5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebCoveredViewController.m; sourceTree = "<group>"; };
 		5C8AC0872243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebHasSubviewsViewController.h; sourceTree = "<group>"; };
 		5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebHasSubviewsViewController.m; sourceTree = "<group>"; };
 		5C8AC08A2243A64F004D7DEF /* YNDemoWebComplexViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebComplexViewController.h; sourceTree = "<group>"; };
 		5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebComplexViewController.m; sourceTree = "<group>"; };
+		5CC4472B224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+YNDWBPrivate.h"; sourceTree = "<group>"; };
+		5CC4472C224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+YNDWBPrivate.m"; sourceTree = "<group>"; };
+		5CDD5628224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+YNDWBPrivate.h"; sourceTree = "<group>"; };
+		5CDD5629224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+YNDWBPrivate.m"; sourceTree = "<group>"; };
 		5CE6425A223A0A4300EC19BB /* YNDemoTitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoTitleCollectionViewCell.h; sourceTree = "<group>"; };
 		5CE6425B223A0A4300EC19BB /* YNDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoListViewController.h; sourceTree = "<group>"; };
 		5CE6425C223A0A4300EC19BB /* YNDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDemoListViewController.m; sourceTree = "<group>"; };
@@ -90,8 +94,8 @@
 		5CEA3290223A3CE20056B01E /* YNDemoMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDemoMacro.h; sourceTree = "<group>"; };
 		5CEA3295223A560A0056B01E /* NSString+YNDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YNDemo.h"; sourceTree = "<group>"; };
 		5CEA3296223A560A0056B01E /* NSString+YNDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YNDemo.m"; sourceTree = "<group>"; };
-		5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YNDWB.h"; sourceTree = "<group>"; };
-		5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNDWB.m"; sourceTree = "<group>"; };
+		5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+YNDWBPrivate.h"; sourceTree = "<group>"; };
+		5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNDWBPrivate.m"; sourceTree = "<group>"; };
 		5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWebView+YNDWB.h"; sourceTree = "<group>"; };
 		5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+YNDWB.m"; sourceTree = "<group>"; };
 		5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+YNDWB.h"; sourceTree = "<group>"; };
@@ -204,12 +208,10 @@
 		5C6ED2B9223A030500B308EB /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */,
-				5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */,
 				5CEEFBAC2239FC9F005D6CB5 /* WKWebView+YNDWB.h */,
 				5CEEFBAD2239FC9F005D6CB5 /* WKWebView+YNDWB.m */,
-				5C80580B2244EDC30069E8E1 /* YNDetectWebBlankCommon.h */,
-				5C80580C2244EDC30069E8E1 /* YNDetectWebBlankCommon.m */,
+				5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */,
+				5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -257,10 +259,14 @@
 				5C6ED2B9223A030500B308EB /* Public */,
 				5C59BD6A224A3C2700F5B167 /* UIView+YNDWBDetect.h */,
 				5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */,
-				5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWB.h */,
-				5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWB.m */,
-				5C6ED2B12239FE7200B308EB /* UIImage+YNDWB.h */,
-				5C6ED2B22239FE7200B308EB /* UIImage+YNDWB.m */,
+				5CEEFBA42239FBF2005D6CB5 /* UIView+YNDWBPrivate.h */,
+				5CEEFBA52239FBF2005D6CB5 /* UIView+YNDWBPrivate.m */,
+				5C6ED2B12239FE7200B308EB /* UIImage+YNDWBPrivate.h */,
+				5C6ED2B22239FE7200B308EB /* UIImage+YNDWBPrivate.m */,
+				5CDD5628224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h */,
+				5CDD5629224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m */,
+				5CC4472B224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h */,
+				5CC4472C224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -283,10 +289,11 @@
 			files = (
 				5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */,
 				5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */,
-				5C80580D2244EDC30069E8E1 /* YNDetectWebBlankCommon.h in Headers */,
+				5CC4472D224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h in Headers */,
 				5C59BD6C224A3C2700F5B167 /* UIView+YNDWBDetect.h in Headers */,
-				5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWB.h in Headers */,
-				5C6ED2B32239FE7200B308EB /* UIImage+YNDWB.h in Headers */,
+				5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWBPrivate.h in Headers */,
+				5CDD562A224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h in Headers */,
+				5C6ED2B32239FE7200B308EB /* UIImage+YNDWBPrivate.h in Headers */,
 				5C26AE2A2239F7510047B81A /* YNDetectWebBlank.h in Headers */,
 				5CEA3291223A3CE20056B01E /* YNDemoMacro.h in Headers */,
 			);
@@ -439,12 +446,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDD562B224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m in Sources */,
 				5CEEFBAB2239FC83005D6CB5 /* UIWebView+YNDWB.m in Sources */,
 				5CEEFBAF2239FC9F005D6CB5 /* WKWebView+YNDWB.m in Sources */,
-				5C80580E2244EDC30069E8E1 /* YNDetectWebBlankCommon.m in Sources */,
-				5C6ED2B42239FE7200B308EB /* UIImage+YNDWB.m in Sources */,
+				5CC4472E224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m in Sources */,
+				5C6ED2B42239FE7200B308EB /* UIImage+YNDWBPrivate.m in Sources */,
 				5C59BD6D224A3C2700F5B167 /* UIView+YNDWBDetect.m in Sources */,
-				5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWB.m in Sources */,
+				5CEEFBA72239FBF2005D6CB5 /* UIView+YNDWBPrivate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

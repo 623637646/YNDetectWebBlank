@@ -1,5 +1,5 @@
 //
-//  UIImage+YNDWB.h
+//  UIImage+YNDWBPrivate.h
 //  YNDetectWebBlank
 //
 //  Created by Wang Ya on 14/3/19.

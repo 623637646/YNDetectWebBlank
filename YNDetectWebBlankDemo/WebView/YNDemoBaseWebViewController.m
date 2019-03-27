@@ -61,15 +61,13 @@
             webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             webView.backgroundColor = [UIColor whiteColor];
             webView.navigationDelegate = self;
-            NSError *error;
             __weak typeof(self) wself = self;
-            [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+            webView.yndwb_block = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
                 __strong typeof(self) self = wself;
                 NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
                 NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
                 [self showToast:toast];
-            } error:&error];
-            NSAssert(!error, @"");
+            };
             [self.view addSubview:webView];
             self.webView = webView;
             break;
@@ -79,15 +77,13 @@
             webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             webView.backgroundColor = [UIColor whiteColor];
             webView.delegate = self;
-            NSError *error;
             __weak typeof(self) wself = self;
-            [webView yndwb_detectBlankWithBlock:^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+            webView.yndwb_block = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
                 __strong typeof(self) self = wself;
                 NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
                 NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
                 [self showToast:toast];
-            } error:&error];
-            NSAssert(!error, @"");
+            };
             [self.view addSubview:webView];
             self.webView = webView;
             break;

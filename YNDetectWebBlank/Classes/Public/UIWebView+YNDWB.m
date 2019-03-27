@@ -11,9 +11,4 @@
 
 @implementation UIWebView (YNDWB)
 
-- (BOOL)yndwb_detectBlankWithBlock:(YNDetectWebBlankBlock)block error:(NSError**)error
-{
-    return [super yndwb_detectBlankWithBlock:block error:error];
-}
-
 @end

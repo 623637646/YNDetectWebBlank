@@ -1,12 +1,12 @@
 //
-//  UIImage+YNDWB.m
+//  UIImage+YNDWBPrivate.m
 //  YNDetectWebBlank
 //
 //  Created by Wang Ya on 14/3/19.
 //  Copyright © 2019 Wang Ya. All rights reserved.
 //
 
-#import "UIImage+YNDWB.h"
+#import "UIImage+YNDWBPrivate.h"
 
 @implementation UIImage (YNDWB)
 
