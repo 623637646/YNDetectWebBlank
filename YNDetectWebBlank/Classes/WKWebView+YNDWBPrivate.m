@@ -15,6 +15,7 @@
 - (void)setYndwb_isLoadingUpdateBlock:(YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
 {
     objc_setAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock), yndwb_isLoadingUpdateBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    // TODO: this may have bug, If WKWebView is observed outside, This will cancel it.
     [self.KVOControllerNonRetaining unobserveAll];
     if (yndwb_isLoadingUpdateBlock) {
         [self yndwb_setUpObserve];
@@ -31,6 +32,7 @@
 - (void)yndwb_setUpObserve
 {
     __weak typeof(self) wself = self;
+    // TODO: Will crash on iOS 10 and below.
     [self.KVOControllerNonRetaining observe:self keyPath:@"loading" options:NSKeyValueObservingOptionNew block:^(id  _Nullable observer, id  _Nonnull object, NSDictionary<NSString *,id> * _Nonnull change) {
         __strong typeof(self) self = wself;
         BOOL isLoading = [change[NSKeyValueChangeNewKey] boolValue];
