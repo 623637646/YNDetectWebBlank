@@ -8,14 +8,14 @@
 
 #import <WebKit/WebKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, YNDetectWebBlankAction) {
     YNDetectWebBlankActionLoaded,
     YNDetectWebBlankActionAppear
 };
 
 typedef void (^YNDetectWebBlankBlock)(NSURL *URL, YNDetectWebBlankAction action, double detectionTime);
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface WKWebView (YNDWB)
 

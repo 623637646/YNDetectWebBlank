@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, YNDemoBaseWebViewType) {
     YNDemoBaseWebViewTypeWK,
     YNDemoBaseWebViewTypeUI
 };
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface YNDemoBaseWebViewController : UIViewController
 

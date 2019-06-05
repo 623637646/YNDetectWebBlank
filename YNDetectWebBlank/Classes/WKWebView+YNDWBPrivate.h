@@ -8,9 +8,9 @@
 
 #import <WebKit/WebKit.h>
 
-typedef void (^YNDWBWebViewIsLoadingUpdateBlock)(BOOL isLoading);
-
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^YNDWBWebViewIsLoadingUpdateBlock)(BOOL isLoading);
 
 @interface WKWebView (YNDWBPrivate)
 

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Aspects/Aspects.h>
 
-typedef void (^YNDWBDidMoveToWindowBlock)(UIWindow *window);
-
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^YNDWBDidMoveToWindowBlock)(UIWindow *window);
 
 @interface UIView (YNDWBPrivate)
 

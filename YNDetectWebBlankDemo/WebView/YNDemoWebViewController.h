@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "YNDemoListViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSUInteger, YNDemoWebViewControllerType) {
     YNDemoWebViewControllerTypeWK,
     YNDemoWebViewControllerTypeUI
 };
-
-NS_ASSUME_NONNULL_BEGIN
 
 @interface YNDemoWebViewController : YNDemoListViewController
 
