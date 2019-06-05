@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 
 app.get('/normal', function (req, res) {
     setTimeout(function () {
-        res.send('This is a normal page!');
+        res.send('<h1>This is a normal page.</h1>');
     }, delay);
 });
 
