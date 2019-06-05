@@ -129,7 +129,7 @@
 
 - (NSURL *)yndwb_URL
 {
-    // TODO: When WKWebView or UIWebView is blank, the URL is nil. Expected is the URL when request. Should swizzle set request method, record the URL.
+    // TODO: When WKWebView or UIWebView is blank, the URL is nil. Expectation is the URL when request. Should swizzle set request method, record the URL.
     if ([self isKindOfClass:WKWebView.class]) {
         return ((WKWebView *)self).URL;
     } else if ([self isKindOfClass:UIWebView.class]){
