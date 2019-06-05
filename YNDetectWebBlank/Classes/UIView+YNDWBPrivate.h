@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^YNDWBDidMoveToWindowBlock)(UIWindow *window);
+typedef void (^YNDWBDidMoveToWindowBlock)(UIWindow * _Nullable window);
 
 @interface UIView (YNDWBPrivate)
 
