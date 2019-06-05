@@ -15,7 +15,7 @@ FOUNDATION_EXPORT double YNDetectWebBlankVersionNumber;
 FOUNDATION_EXPORT const unsigned char YNDetectWebBlankVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <YNDetectWebBlank/PublicHeader.h>
-
+#import <YNDetectWebBlank/YNDetectWebBlankDefinition.h>
 #import <YNDetectWebBlank/UIWebView+YNDWB.h>
 #import <YNDetectWebBlank/WKWebView+YNDWB.h>
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Aspects/Aspects.h>
-#import "WKWebView+YNDWBPrivate.h"
+#import "YNDetectWebBlankPrivateDefinition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

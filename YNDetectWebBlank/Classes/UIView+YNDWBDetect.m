@@ -7,32 +7,17 @@
 //
 
 #import "UIView+YNDWBDetect.h"
-#import <WebKit/WebKit.h>
-#import "UIView+YNDWBPrivate.h"
-#import "UIWebView+YNDWBPrivate.h"
 #import <objc/runtime.h>
+#import "UIView+YNDWBPrivate.h"
+#import "UIWebView+YNDWB.h"
+#import "UIWebView+YNDWBPrivate.h"
+#import "WKWebView+YNDWB.h"
+#import "WKWebView+YNDWBPrivate.h"
+
 
 @implementation UIView (YNDWBDetect)
 
 #pragma mark - setter getter
-
-+ (void)setYndwb_delayDetectWhenLoaded:(NSTimeInterval)yndwb_delayDetectWhenLoaded
-{
-    NSParameterAssert(yndwb_delayDetectWhenLoaded > 0);
-    if (yndwb_delayDetectWhenLoaded <= 0) {
-        return;
-    }
-    objc_setAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded), @(yndwb_delayDetectWhenLoaded), OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-+ (NSTimeInterval)yndwb_delayDetectWhenLoaded
-{
-    id value = objc_getAssociatedObject(self, @selector(yndwb_delayDetectWhenLoaded));
-    if (!value) {
-        return 0.2;
-    }
-    return [value doubleValue];
-}
 
 - (void)setYndwb_block:(YNDetectWebBlankBlock)yndwb_block
 {
@@ -74,7 +59,7 @@
 - (void)yndwb_requestDetectWhenFinishLoading
 {
     [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionLoaded];
-    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(UIView.yndwb_delayDetectWhenLoaded * NSEC_PER_SEC));
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)([self yndwb_delayDetectWhenLoaded] * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
 
@@ -148,6 +133,18 @@
         NSAssert(NO, @"self is not UIWebView or WKWebView");
     }
     return nil;
+}
+
+- (NSTimeInterval)yndwb_delayDetectWhenLoaded
+{
+    if ([self isKindOfClass:WKWebView.class]) {
+        return WKWebView.yndwb_delayDetectWhenLoaded;
+    } else if ([self isKindOfClass:UIWebView.class]){
+        return UIWebView.yndwb_delayDetectWhenLoaded;
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
+    }
+    return 0.2;
 }
 
 - (BOOL)yndwb_webViewAlreadyRequested

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WKWebView+YNDWB.h"
+#import "YNDetectWebBlankDefinition.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

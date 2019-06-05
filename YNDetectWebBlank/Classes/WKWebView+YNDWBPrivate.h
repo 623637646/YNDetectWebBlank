@@ -7,10 +7,9 @@
 //
 
 #import <WebKit/WebKit.h>
+#import "YNDetectWebBlankPrivateDefinition.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef void (^YNDWBWebViewIsLoadingUpdateBlock)(BOOL isLoading);
 
 @interface WKWebView (YNDWBPrivate)
 

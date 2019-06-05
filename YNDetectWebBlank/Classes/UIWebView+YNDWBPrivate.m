@@ -8,7 +8,6 @@
 
 #import "UIWebView+YNDWBPrivate.h"
 #import <objc/runtime.h>
-#import <Aspects/Aspects.h>
 
 @implementation YNDWBUIWebViewDelegate
 

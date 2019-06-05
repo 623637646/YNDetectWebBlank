@@ -21,6 +21,8 @@
 		5C59BD6D224A3C2700F5B167 /* UIView+YNDWBDetect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */; };
 		5C6ED2B32239FE7200B308EB /* UIImage+YNDWBPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C6ED2B12239FE7200B308EB /* UIImage+YNDWBPrivate.h */; };
 		5C6ED2B42239FE7200B308EB /* UIImage+YNDWBPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED2B22239FE7200B308EB /* UIImage+YNDWBPrivate.m */; };
+		5C70CCF822A7A65900367DA0 /* YNDetectWebBlankDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C70CCF622A7A65900367DA0 /* YNDetectWebBlankDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C70CCFC22A7A96100367DA0 /* YNDetectWebBlankPrivateDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C70CCFA22A7A96100367DA0 /* YNDetectWebBlankPrivateDefinition.h */; };
 		5C8AC0862243A1C7004D7DEF /* YNDemoWebCoveredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */; };
 		5C8AC0892243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC0882243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.m */; };
 		5C8AC08C2243A64F004D7DEF /* YNDemoWebComplexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8AC08B2243A64F004D7DEF /* YNDemoWebComplexViewController.m */; };
@@ -69,6 +71,8 @@
 		5C59BD6B224A3C2700F5B167 /* UIView+YNDWBDetect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+YNDWBDetect.m"; sourceTree = "<group>"; };
 		5C6ED2B12239FE7200B308EB /* UIImage+YNDWBPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YNDWBPrivate.h"; sourceTree = "<group>"; };
 		5C6ED2B22239FE7200B308EB /* UIImage+YNDWBPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YNDWBPrivate.m"; sourceTree = "<group>"; };
+		5C70CCF622A7A65900367DA0 /* YNDetectWebBlankDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlankDefinition.h; sourceTree = "<group>"; };
+		5C70CCFA22A7A96100367DA0 /* YNDetectWebBlankPrivateDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDetectWebBlankPrivateDefinition.h; sourceTree = "<group>"; };
 		5C8AC0842243A1C7004D7DEF /* YNDemoWebCoveredViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebCoveredViewController.h; sourceTree = "<group>"; };
 		5C8AC0852243A1C7004D7DEF /* YNDemoWebCoveredViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNDemoWebCoveredViewController.m; sourceTree = "<group>"; };
 		5C8AC0872243A1E4004D7DEF /* YNDemoWebHasSubviewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YNDemoWebHasSubviewsViewController.h; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 				5CEEFBAD2239FC9F005D6CB5 /* WKWebView+YNDWB.m */,
 				5CEEFBA82239FC83005D6CB5 /* UIWebView+YNDWB.h */,
 				5CEEFBA92239FC83005D6CB5 /* UIWebView+YNDWB.m */,
+				5C70CCF622A7A65900367DA0 /* YNDetectWebBlankDefinition.h */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				5CDD5629224B1B51007A0AEE /* WKWebView+YNDWBPrivate.m */,
 				5CC4472B224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h */,
 				5CC4472C224B1B85007C85C5 /* UIWebView+YNDWBPrivate.m */,
+				5C70CCFA22A7A96100367DA0 /* YNDetectWebBlankPrivateDefinition.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -288,11 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEEFBAA2239FC83005D6CB5 /* UIWebView+YNDWB.h in Headers */,
+				5C70CCFC22A7A96100367DA0 /* YNDetectWebBlankPrivateDefinition.h in Headers */,
 				5CEEFBAE2239FC9F005D6CB5 /* WKWebView+YNDWB.h in Headers */,
 				5CC4472D224B1B85007C85C5 /* UIWebView+YNDWBPrivate.h in Headers */,
 				5C59BD6C224A3C2700F5B167 /* UIView+YNDWBDetect.h in Headers */,
 				5CEEFBA62239FBF2005D6CB5 /* UIView+YNDWBPrivate.h in Headers */,
 				5CDD562A224B1B51007A0AEE /* WKWebView+YNDWBPrivate.h in Headers */,
+				5C70CCF822A7A65900367DA0 /* YNDetectWebBlankDefinition.h in Headers */,
 				5C6ED2B32239FE7200B308EB /* UIImage+YNDWBPrivate.h in Headers */,
 				5C26AE2A2239F7510047B81A /* YNDetectWebBlank.h in Headers */,
 				5CEA3291223A3CE20056B01E /* YNDemoMacro.h in Headers */,
