@@ -139,6 +139,7 @@
 
 - (NSURL *)yndwb_URL
 {
+    // TODO: WK 和 UI 白屏时，获取到的URL是nil，应该swizzle 设置request的方法， 记录当时的URL
     if ([self isKindOfClass:WKWebView.class]) {
         return ((WKWebView *)self).URL;
     } else if ([self isKindOfClass:UIWebView.class]){

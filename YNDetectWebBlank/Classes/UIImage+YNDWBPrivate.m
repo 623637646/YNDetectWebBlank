@@ -10,6 +10,7 @@
 
 @implementation UIImage (YNDWB)
 
+// TODO: Is it possible to improve performance?
 // refer: https://stackoverflow.com/a/30732543/9315497
 - (BOOL)yndwb_isBlank
 {

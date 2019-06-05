@@ -53,6 +53,7 @@
     return objc_getAssociatedObject(self, @selector(yndwb_didMoveToWindowToken));
 }
 
+// TODO: Is it possible to improve performance?
 - (UIImage *)yndwb_takeSnapshot
 {
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
