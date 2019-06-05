@@ -129,7 +129,7 @@
 
 - (NSURL *)yndwb_URL
 {
-    // TODO: WK 和 UI 白屏时，获取到的URL是nil，应该swizzle 设置request的方法， 记录当时的URL
+    // TODO: When WKWebView or UIWebView is blank, the URL is nil. Expected is the URL when request. Should swizzle set request method, record the URL.
     if ([self isKindOfClass:WKWebView.class]) {
         return ((WKWebView *)self).URL;
     } else if ([self isKindOfClass:UIWebView.class]){
@@ -188,7 +188,7 @@
     if ([self isKindOfClass:WKWebView.class]) {
         ((WKWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
-            if (self.window && !isLoading) {
+            if ([self yndwb_needDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
             } else {
                 [self yndwb_cancelDeployDetectionBlock];
@@ -197,7 +197,7 @@
     } else if ([self isKindOfClass:UIWebView.class]){
         ((UIWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
-            if (self.window && !isLoading) {
+            if ([self yndwb_needDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
             } else {
                 [self yndwb_cancelDeployDetectionBlock];
