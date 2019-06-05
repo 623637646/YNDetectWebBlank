@@ -122,7 +122,7 @@
 
 - (BOOL)yndwb_needDetect
 {
-    return self.window && ![self yndwb_isLoading] && [self yndwb_URL];
+    return self.window && [self yndwb_webViewAlreadyRequested] && ![self yndwb_isLoading];
 }
 
 - (BOOL)yndwb_isLoading
@@ -147,6 +147,18 @@
         NSAssert(NO, @"self is not UIWebView or WKWebView");
     }
     return nil;
+}
+
+- (BOOL)yndwb_webViewAlreadyRequested
+{
+    if ([self isKindOfClass:WKWebView.class]) {
+        return ((WKWebView *)self).yndwb_alreadyRequested;
+    } else if ([self isKindOfClass:UIWebView.class]){
+        return ((UIWebView *)self).yndwb_alreadyRequested;
+    } else {
+        NSAssert(NO, @"self is not UIWebView or WKWebView");
+    }
+    return NO;
 }
 
 - (void)yndwb_setUpDidMoveToWindowBlock

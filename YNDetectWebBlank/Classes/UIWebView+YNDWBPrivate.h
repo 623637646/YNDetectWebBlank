@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - project
 @property (nonatomic, copy, nullable) YNDWBWebViewIsLoadingUpdateBlock yndwb_isLoadingUpdateBlock;
+@property (nonatomic, assign) BOOL yndwb_alreadyRequested;
 
 #pragma mark - private
 @property (nonatomic, strong, nullable) YNDWBUIWebViewDelegate *yndwb_trueDelegate;

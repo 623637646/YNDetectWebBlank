@@ -25,6 +25,7 @@
     if (self.webView.yndwb_delegate && [self.webView.yndwb_delegate respondsToSelector:@selector(webViewDidStartLoad:)]) {
         [self.webView.yndwb_delegate webViewDidStartLoad:webView];
     }
+    self.webView.yndwb_alreadyRequested = YES;
     if (self.webView.yndwb_isLoadingUpdateBlock) {
         self.webView.yndwb_isLoadingUpdateBlock(YES);
     }
@@ -69,6 +70,16 @@
 - (YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
 {
     return objc_getAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock));
+}
+
+- (void)setYndwb_alreadyRequested:(BOOL)yndwb_alreadyRequested
+{
+    objc_setAssociatedObject(self, @selector(yndwb_alreadyRequested), @(yndwb_alreadyRequested), OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (BOOL)yndwb_alreadyRequested
+{
+    return [objc_getAssociatedObject(self, @selector(yndwb_alreadyRequested)) boolValue];
 }
 
 - (void)setYndwb_delegate:(id<UIWebViewDelegate>)yndwb_delegate
