@@ -11,6 +11,7 @@
 #import "YNDemoWebBlankViewController.h"
 #import "YNDemoWebTimeOutViewController.h"
 #import "YNDemoWebBlankWhenBackViewController.h"
+#import "YNDemoWebBlankWhenEnterForegroundViewController.h"
 #import "YNDemoWebCoveredViewController.h"
 #import "YNDemoWebHasSubviewsViewController.h"
 #import "YNDemoWebComplexViewController.h"
@@ -51,6 +52,7 @@
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank" obj:YNDemoWebBlankViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"TimeOut" obj:YNDemoWebTimeOutViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank when back" obj:YNDemoWebBlankWhenBackViewController.class],
+                        [YNDemoListDataSourceItem itemWithTitle:@"Blank when enter background" obj:YNDemoWebBlankWhenEnterForegroundViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank when Covered by other views" obj:YNDemoWebCoveredViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"Blank when has subviews" obj:YNDemoWebHasSubviewsViewController.class],
                         [YNDemoListDataSourceItem itemWithTitle:@"A complex page" obj:YNDemoWebComplexViewController.class]
