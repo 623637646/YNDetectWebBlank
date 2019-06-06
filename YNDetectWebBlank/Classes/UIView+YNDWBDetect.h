@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - private
 @property (nonatomic, copy, nullable) dispatch_block_t yndwb_deployDetectionBlock;
+@property (nonatomic, assign) BOOL yndwb_haveSetUpDetectWhenEnterForeground;
 
 @end
 

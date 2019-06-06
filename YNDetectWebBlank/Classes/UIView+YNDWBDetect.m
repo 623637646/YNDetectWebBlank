@@ -26,9 +26,11 @@
     if (yndwb_block) {
         [self yndwb_setUpDidMoveToWindowBlock];
         [self yndwb_setUpIsLoadingUpdateBlock];
+        [self yndwb_setUpDetectWhenEnterForeground];
     } else {
         [self yndwb_removeDidMoveToWindowBlock];
         [self yndwb_removeIsLoadingUpdateBlock];
+        [self yndwb_removeDetectWhenEnterForeground];
     }
 }
 
@@ -47,11 +49,21 @@
     return objc_getAssociatedObject(self, @selector(yndwb_deployDetectionBlock));
 }
 
+- (void)setYndwb_haveSetUpDetectWhenEnterForeground:(BOOL)yndwb_haveSetUpDetectWhenEnterForeground
+{
+    objc_setAssociatedObject(self, @selector(yndwb_haveSetUpDetectWhenEnterForeground), @(yndwb_haveSetUpDetectWhenEnterForeground), OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (BOOL)yndwb_haveSetUpDetectWhenEnterForeground
+{
+    return [objc_getAssociatedObject(self, @selector(yndwb_haveSetUpDetectWhenEnterForeground)) boolValue];
+}
+
 #pragma mark - detect
 
-- (void)yndwb_requestDetectWhenBack
+- (void)yndwb_requestDetectionWhenAppearInWindow
 {
-    [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionAppear];
+    [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionAppearInWindow];
     
     // Why here execute block in 0.5 second?
     // Because when webView's view controler will push another view controller, webView's window will be nil first, then it will be the original UIWindow. After animations finished, webView's window will be nil again.
@@ -65,6 +77,16 @@
 {
     [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionLoaded];
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)([self yndwb_delayDetectWhenLoaded] * NSEC_PER_SEC));
+    dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
+}
+
+- (void)yndwb_requestDetectWhenEnterForeground
+{
+    [self yndwb_setUpDeployDetectionBlockWithAction:YNDetectWebBlankActionEnterForeground];
+    
+    // Why here execute block in 0.5 second?
+    // Because when enter foreground, system has a animation (around 0.5s), If detect before this animation end, it's not fluent.
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
 
@@ -170,7 +192,7 @@
     self.yndwb_didMoveToWindowBlock = ^(UIWindow *window) {
         __strong typeof(self) self = wself;
         if ([self yndwb_needDetect]) {
-            [self yndwb_requestDetectWhenBack];
+            [self yndwb_requestDetectionWhenAppearInWindow];
         } else {
             [self yndwb_cancelDeployDetectionBlock];
         }
@@ -217,6 +239,25 @@
     } else {
         NSAssert(NO, @"self is not UIWebView or WKWebView");
     }
+}
+
+- (void)yndwb_setUpDetectWhenEnterForeground
+{
+    if (self.yndwb_haveSetUpDetectWhenEnterForeground) {
+        return;
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(yndwb_requestDetectWhenEnterForeground)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+    self.yndwb_haveSetUpDetectWhenEnterForeground = YES;
+}
+
+- (void)yndwb_removeDetectWhenEnterForeground
+{
+    // TODO: Will crash on iOS 10 and below when this object dealloc and not remove notification
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+    self.yndwb_haveSetUpDetectWhenEnterForeground = NO;
 }
 
 @end

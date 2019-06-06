@@ -54,6 +54,9 @@
 }
 
 // TODO: Is it possible to improve performance?
+// refer: https://stackoverflow.com/a/18925301/9315497
+// TODO: Memory leak! Use UIWebView demo，click "Blank when back" repeatedly, memory leak happen. ccomment "yndwb_takeSnapshot", no memory leak!
+// TODO: Detection is slower and slower when click "Blank when back" repeatedly, both UI and WK. maybe relate to this memory leak.
 - (UIImage *)yndwb_takeSnapshot
 {
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();

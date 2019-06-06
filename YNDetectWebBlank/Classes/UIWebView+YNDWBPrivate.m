@@ -124,6 +124,7 @@
     self.delegate = self.yndwb_trueDelegate;
     
     // token
+    // TODO: Should also hook "get delegate" method. otherwise others set a delegate and get a different delegate.
     if (!self.yndwb_delegateToken) {
         __weak typeof(self) wself = self;
         NSError *error = nil;
