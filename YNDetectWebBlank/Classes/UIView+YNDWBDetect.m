@@ -19,11 +19,11 @@
 
 #pragma mark - setter getter
 
-- (void)setYndwb_block:(YNDetectWebBlankBlock)yndwb_block
+- (void)setYndwb_detectedBlankBlock:(YNDetectWebBlankBlock)yndwb_detectedBlankBlock
 {
-    objc_setAssociatedObject(self, @selector(yndwb_block), yndwb_block, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(yndwb_detectedBlankBlock), yndwb_detectedBlankBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     // detect
-    if (yndwb_block) {
+    if (yndwb_detectedBlankBlock) {
         [self yndwb_setUpDidMoveToWindowBlock];
         [self yndwb_setUpIsLoadingUpdateBlock];
         [self yndwb_setUpDetectWhenEnterForeground];
@@ -34,9 +34,9 @@
     }
 }
 
-- (YNDetectWebBlankBlock)yndwb_block
+- (YNDetectWebBlankBlock)yndwb_detectedBlankBlock
 {
-    return objc_getAssociatedObject(self, @selector(yndwb_block));
+    return objc_getAssociatedObject(self, @selector(yndwb_detectedBlankBlock));
 }
 
 - (void)setYndwb_deployDetectionBlock:(dispatch_block_t)yndwb_deployDetectionBlock
@@ -127,7 +127,7 @@
     if (!isBlank) {
         return;
     }
-    self.yndwb_block([self yndwb_URL], action, detectTime * 1000.0);
+    self.yndwb_detectedBlankBlock([self yndwb_URL], action, detectTime * 1000.0);
 }
 
 #pragma mark - WKWebView UIWebView utilities
@@ -208,7 +208,7 @@
 {
     __weak typeof(self) wself = self;
     if ([self isKindOfClass:WKWebView.class]) {
-        ((WKWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
+        ((WKWebView *)self).yndwb_loadingStatusUpdatedBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
             if ([self yndwb_needDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
@@ -217,7 +217,7 @@
             }
         };
     } else if ([self isKindOfClass:UIWebView.class]){
-        ((UIWebView *)self).yndwb_isLoadingUpdateBlock = ^(BOOL isLoading) {
+        ((UIWebView *)self).yndwb_loadingStatusUpdatedBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
             if ([self yndwb_needDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
@@ -233,9 +233,9 @@
 - (void)yndwb_removeIsLoadingUpdateBlock
 {
     if ([self isKindOfClass:WKWebView.class]) {
-        ((WKWebView *)self).yndwb_isLoadingUpdateBlock = nil;
+        ((WKWebView *)self).yndwb_loadingStatusUpdatedBlock = nil;
     } else if ([self isKindOfClass:UIWebView.class]){
-        ((UIWebView *)self).yndwb_isLoadingUpdateBlock = nil;
+        ((UIWebView *)self).yndwb_loadingStatusUpdatedBlock = nil;
     } else {
         NSAssert(NO, @"self is not UIWebView or WKWebView");
     }

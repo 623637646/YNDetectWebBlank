@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIWebView (YNDWBPrivate)
 
 #pragma mark - project
-@property (nonatomic, copy, nullable) YNDWBWebViewIsLoadingUpdateBlock yndwb_isLoadingUpdateBlock;
+@property (nonatomic, copy, nullable) YNDWBWebViewIsLoadingUpdateBlock yndwb_loadingStatusUpdatedBlock;
 @property (nonatomic, assign) BOOL yndwb_alreadyRequested;
 
 #pragma mark - private

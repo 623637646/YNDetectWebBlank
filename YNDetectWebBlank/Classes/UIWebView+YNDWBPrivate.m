@@ -25,8 +25,8 @@
         [self.webView.yndwb_delegate webViewDidStartLoad:webView];
     }
     self.webView.yndwb_alreadyRequested = YES;
-    if (self.webView.yndwb_isLoadingUpdateBlock) {
-        self.webView.yndwb_isLoadingUpdateBlock(YES);
+    if (self.webView.yndwb_loadingStatusUpdatedBlock) {
+        self.webView.yndwb_loadingStatusUpdatedBlock(YES);
     }
 }
 
@@ -35,8 +35,8 @@
     if (self.webView.yndwb_delegate && [self.webView.yndwb_delegate respondsToSelector:@selector(webViewDidFinishLoad:)]) {
         [self.webView.yndwb_delegate webViewDidFinishLoad:webView];
     }
-    if (self.webView.yndwb_isLoadingUpdateBlock) {
-        self.webView.yndwb_isLoadingUpdateBlock(NO);
+    if (self.webView.yndwb_loadingStatusUpdatedBlock) {
+        self.webView.yndwb_loadingStatusUpdatedBlock(NO);
     }
 }
 
@@ -45,8 +45,8 @@
     if (self.webView.yndwb_delegate && [self.webView.yndwb_delegate respondsToSelector:@selector(webView:didFailLoadWithError:)]) {
         [self.webView.yndwb_delegate webView:webView didFailLoadWithError:error];
     }
-    if (self.webView.yndwb_isLoadingUpdateBlock) {
-        self.webView.yndwb_isLoadingUpdateBlock(NO);
+    if (self.webView.yndwb_loadingStatusUpdatedBlock) {
+        self.webView.yndwb_loadingStatusUpdatedBlock(NO);
     }
 }
 
@@ -56,19 +56,19 @@
 
 #pragma mark - setter getter
 
-- (void)setYndwb_isLoadingUpdateBlock:(YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
+- (void)setYndwb_loadingStatusUpdatedBlock:(YNDWBWebViewIsLoadingUpdateBlock)yndwb_loadingStatusUpdatedBlock
 {
-    objc_setAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock), yndwb_isLoadingUpdateBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    if (yndwb_isLoadingUpdateBlock) {
+    objc_setAssociatedObject(self, @selector(yndwb_loadingStatusUpdatedBlock), yndwb_loadingStatusUpdatedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    if (yndwb_loadingStatusUpdatedBlock) {
         [self yndwb_setUpDelegateHook];
     } else {
         [self yndwb_cleanDelegateHook];
     }
 }
 
-- (YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
+- (YNDWBWebViewIsLoadingUpdateBlock)yndwb_loadingStatusUpdatedBlock
 {
-    return objc_getAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock));
+    return objc_getAssociatedObject(self, @selector(yndwb_loadingStatusUpdatedBlock));
 }
 
 - (void)setYndwb_alreadyRequested:(BOOL)yndwb_alreadyRequested

@@ -12,19 +12,19 @@
 
 @implementation WKWebView (YNDWBPrivate)
 
-- (void)setYndwb_isLoadingUpdateBlock:(YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
+- (void)setYndwb_loadingStatusUpdatedBlock:(YNDWBWebViewIsLoadingUpdateBlock)yndwb_loadingStatusUpdatedBlock
 {
-    objc_setAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock), yndwb_isLoadingUpdateBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(yndwb_loadingStatusUpdatedBlock), yndwb_loadingStatusUpdatedBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     // TODO: this may have bug, If WKWebView is observed outside, This will cancel it.
     [self.KVOControllerNonRetaining unobserveAll];
-    if (yndwb_isLoadingUpdateBlock) {
+    if (yndwb_loadingStatusUpdatedBlock) {
         [self yndwb_setUpObserve];
     }
 }
 
-- (YNDWBWebViewIsLoadingUpdateBlock)yndwb_isLoadingUpdateBlock
+- (YNDWBWebViewIsLoadingUpdateBlock)yndwb_loadingStatusUpdatedBlock
 {
-    return objc_getAssociatedObject(self, @selector(yndwb_isLoadingUpdateBlock));
+    return objc_getAssociatedObject(self, @selector(yndwb_loadingStatusUpdatedBlock));
 }
 
 - (void)setYndwb_alreadyRequested:(BOOL)yndwb_alreadyRequested
@@ -49,8 +49,8 @@
         if (isLoading) {
             self.yndwb_alreadyRequested = YES;
         }
-        if (self.yndwb_isLoadingUpdateBlock) {
-            self.yndwb_isLoadingUpdateBlock(isLoading);
+        if (self.yndwb_loadingStatusUpdatedBlock) {
+            self.yndwb_loadingStatusUpdatedBlock(isLoading);
         }
     }];
 }

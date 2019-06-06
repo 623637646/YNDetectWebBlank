@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma project
 
 // Detect block
-@property (nonatomic, copy, nullable) YNDetectWebBlankBlock yndwb_block;
+@property (nonatomic, copy, nullable) YNDetectWebBlankBlock yndwb_detectedBlankBlock;
 
 #pragma mark - private
 @property (nonatomic, copy, nullable) dispatch_block_t yndwb_deployDetectionBlock;

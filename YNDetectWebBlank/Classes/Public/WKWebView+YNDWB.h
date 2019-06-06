@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, class) NSTimeInterval yndwb_delayDetectWhenLoaded;
 
 // Detect block
-@property (nonatomic, copy, nullable) YNDetectWebBlankBlock yndwb_block;
+@property (nonatomic, copy, nullable) YNDetectWebBlankBlock yndwb_detectedBlankBlock;
 
 @end
 

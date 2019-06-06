@@ -62,7 +62,7 @@
             webView.backgroundColor = [UIColor whiteColor];
             webView.navigationDelegate = self;
             __weak typeof(self) wself = self;
-            webView.yndwb_block = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+            webView.yndwb_detectedBlankBlock = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
                 __strong typeof(self) self = wself;
                 NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
                 NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];
@@ -78,7 +78,7 @@
             webView.backgroundColor = [UIColor whiteColor];
             webView.delegate = self;
             __weak typeof(self) wself = self;
-            webView.yndwb_block = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
+            webView.yndwb_detectedBlankBlock = ^(NSURL *URL, YNDetectWebBlankAction action, double detectionTime) {
                 __strong typeof(self) self = wself;
                 NSString *actionString = action == YNDetectWebBlankActionLoaded ? @"loaded" : @"appear";
                 NSString *toast = [NSString stringWithFormat:@"Blank when %@(used %0.2fms).\n URL: %@",actionString, detectionTime, URL];

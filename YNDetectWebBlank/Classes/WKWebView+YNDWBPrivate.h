@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WKWebView (YNDWBPrivate)
 
-@property (nonatomic, copy, nullable) YNDWBWebViewIsLoadingUpdateBlock yndwb_isLoadingUpdateBlock;
+@property (nonatomic, copy, nullable) YNDWBWebViewIsLoadingUpdateBlock yndwb_loadingStatusUpdatedBlock;
 @property (nonatomic, assign) BOOL yndwb_alreadyRequested;
 
 @end
