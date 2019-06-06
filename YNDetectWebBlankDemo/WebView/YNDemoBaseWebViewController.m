@@ -125,6 +125,8 @@
     [self hideToastIfNeed];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.label.text = text;
+    HUD.contentColor = [UIColor whiteColor];
+    HUD.bezelView.color = [UIColor redColor];
     HUD.label.numberOfLines = 0;
     HUD.offset = CGPointMake(0, 100);
     HUD.mode = MBProgressHUDModeText;
