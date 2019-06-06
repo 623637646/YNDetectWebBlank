@@ -99,7 +99,7 @@
         if (!self) {
             return;
         }
-        if ([self yndwb_needDetect]) {
+        if ([self yndwb_isNeedDetect]) {
             [self yndwb_detectWithAction:action];
         }
         self.yndwb_deployDetectionBlock = nil;
@@ -116,8 +116,8 @@
 
 - (void)yndwb_detectWithAction:(YNDetectWebBlankAction)action
 {
-    NSAssert([self yndwb_needDetect], @"Don't need detect now");
-    if (![self yndwb_needDetect]) {
+    NSAssert([self yndwb_isNeedDetect], @"Don't need detect now");
+    if (![self yndwb_isNeedDetect]) {
         return;
     }
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
@@ -132,9 +132,9 @@
 
 #pragma mark - WKWebView UIWebView utilities
 
-- (BOOL)yndwb_needDetect
+- (BOOL)yndwb_isNeedDetect
 {
-    return self.window && [self yndwb_webViewAlreadyRequested] && ![self yndwb_isLoading];
+    return self.window && [self yndwb_webViewAlreadyRequested] && ![self yndwb_isLoading] && [UIApplication sharedApplication].applicationState != UIApplicationStateBackground;
 }
 
 - (BOOL)yndwb_isLoading
@@ -191,7 +191,7 @@
     __weak typeof(self) wself = self;
     self.yndwb_didMoveToWindowBlock = ^(UIWindow *window) {
         __strong typeof(self) self = wself;
-        if ([self yndwb_needDetect]) {
+        if ([self yndwb_isNeedDetect]) {
             [self yndwb_requestDetectionWhenAppearInWindow];
         } else {
             [self yndwb_cancelDeployDetectionBlock];
@@ -210,7 +210,7 @@
     if ([self isKindOfClass:WKWebView.class]) {
         ((WKWebView *)self).yndwb_loadingStatusUpdatedBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
-            if ([self yndwb_needDetect]) {
+            if ([self yndwb_isNeedDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
             } else {
                 [self yndwb_cancelDeployDetectionBlock];
@@ -219,7 +219,7 @@
     } else if ([self isKindOfClass:UIWebView.class]){
         ((UIWebView *)self).yndwb_loadingStatusUpdatedBlock = ^(BOOL isLoading) {
             __strong typeof(self) self = wself;
-            if ([self yndwb_needDetect]) {
+            if ([self yndwb_isNeedDetect]) {
                 [self yndwb_requestDetectWhenFinishLoading];
             } else {
                 [self yndwb_cancelDeployDetectionBlock];
