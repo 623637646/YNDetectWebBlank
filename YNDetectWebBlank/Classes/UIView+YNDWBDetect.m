@@ -69,6 +69,7 @@
     // Because when webView's view controler will push another view controller, webView's window will be nil first, then it will be the original UIWindow. After animations finished, webView's window will be nil again.
     // So in this case, It should ignore the "animations windows changing".
     // With many testings, I use 0.5s.
+    // TODO: make sure this.
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
@@ -86,6 +87,7 @@
     
     // Why here execute block in 0.5 second?
     // Because when enter foreground, system has a animation (around 0.5s), If detect before this animation end, it's not fluent.
+    // TODO: make sure this.
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), self.yndwb_deployDetectionBlock);
 }
